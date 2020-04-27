@@ -27,11 +27,9 @@ void main()
 		      b[j]=t;     a[j]=tt;
 		      }
 
+
  w[1]=0;
-
-
  printf("\nprocess %d waiting time is 0",a[1]);
-
  for(i=2;i<=n;i++)
  {
   w[i]=b[i-1]+w[i-1];

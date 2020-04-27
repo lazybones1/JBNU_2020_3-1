@@ -9,12 +9,11 @@ void main()
  float avg=0;
  clrscr();
  printf("\n\tJOB SCHEDULING ALGORITHM[FCFS]");
- printf("\n\t*************************************************
-                                                                                                    ****\n");
- printf("\nEnter howmany jobs:");
+ printf("\n\t************************************************* howmany jobs:");
  scanf("%d",&n);
 
  printf("\nEnter burst time for corresponding job....\n");
+
  for(i=0;i<n;i++)
  {
   printf("\nProcess %d:",i+1);
@@ -22,7 +21,6 @@ void main()
  }
 
  w[0]=0;
-
  printf("\nprocess 1 waiting time is 0");
  for(i=1;i<n;i++)
  {
@@ -31,13 +29,10 @@ void main()
   avg+=w[i];
  }
 
-
-
  printf("\ntotal waiting time:%f",avg);
 
  printf("\n\nthe average waiting time is:%f\n",avg/n);
- printf("\nGaunt
-             Chart\n***************************************\n\n\t");
+ printf("\nGaunt Chart\n***************************************\n\n\t");
  h=22;
 
  for(i=0;i<n;i++)
