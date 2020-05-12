@@ -16,6 +16,26 @@ int phil[N] = { 0, 1, 2, 3, 4 };
 sem_t mutex; //상호 배제
 sem_t S[N]; //세마포어
 
+void show_state(){
+   for(int i = 0; i<N; i++){
+    printf(" %d", state[i]);
+  }
+  printf("\n");
+}
+
+void show_graph(){
+  printf(" -----------------------------------------\n");
+  show_state();
+  for(int i = 0; i<N; i++){
+    int r = (i+1)%5;
+    printf(" phil %d ",i+1);
+    if(state[i] == 0) printf("<- fork %d <-- ", i+1);
+    else if(state[r] == 0) printf("--> fork %d ->", i+1);
+    else printf("--> fork %d <--", i+1);
+  }
+  printf("\n");
+  printf(" -----------------------------------------\n");
+}
 
 void test(int phnum)
 {
@@ -24,14 +44,10 @@ void test(int phnum)
 		&& state[RIGHT] != EATING) {
 		// state that eating
 		state[phnum] = EATING;
-
 		sleep(2);
-
 		printf("Philosopher %d takes fork %d and %d\n",
 					phnum + 1, LEFT + 1, phnum + 1);
-
 		printf("Philosopher %d is Eating\n", phnum + 1);
-
 		// sem_post(&S[phnum]) has no effect
 		// during takefork
 		// used to wake up hungry philosophers
@@ -64,6 +80,7 @@ void put_fork(int phnum)
 	printf("Philosopher %d putting fork %d and %d down\n",
 		phnum + 1, LEFT + 1, phnum + 1);
 	printf("Philosopher %d is thinking\n", phnum + 1);
+
 	test(LEFT);
 	test(RIGHT);
 	sem_post(&mutex); //세마포어 증가
@@ -76,7 +93,8 @@ void* philospher(void* num)
 		sleep(1);
 		take_fork(*i); //포크 잡기
 		sleep(0);
-		put_fork(*i); //포크 두기
+		put_fork(*i); //포크 두기  
+    show_graph();
 	}
 }
 
