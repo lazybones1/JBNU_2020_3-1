@@ -1,0 +1,80 @@
+--원본파일--
+코드는 식사하는 철학자 문제를 나타내는 코드이다.
+
+코드 흐름 :
+
+변수 설명 :
+-N : 철학자의 수
+-THINKING, HUNGRY, EATING : 철학자의 상태
+-LEFT, RIGHT : 왼쪽, 오른쪽 표현 (철학자가 5명이므로 +4,+1)이된다.
+-state[]: 철학자의 상태 표시
+-phil[] : 철학자 표시
+-mutex : 세마포어, 다른 작업이 동시에 실행되지 않도록 상호 배제
+-S[] : 세마포어, 포크 각각의 상호 배제
+
+메인함수 :
+1. 스레드 배열 생성
+2. mutex 세마포어 초기화 (초기값 1)
+3. S[]배열 세마포어 초기화 (초기값 0)
+4. 스레드 생성
+5. 스레드 종료 대기
+
+philospher :
+1. take_fork
+2. put_fork
+3. 반복
+
+take_fork :
+1. mutex 감소
+2. 상태 = 배고픔
+3. 양 옆이 식사중인 상태가 아니면 상태 = 식사중으로 변경
+4. S[] 증가
+
+put_fork :
+1. mutex 감소
+2. 상태 = 생각중
+3. 왼쪽의 양 옆이 식사인 상태가 아니면 왼족의 상태 = 식사중으로 변경
+4. 오른쪽의 양 옆이 식사인 상태가 아니면 왼족의 상태 = 식사중으로 변경
+5. mutex 증가
+
+--개선파일--
+
+--C언어 쓰레드--
+헤더파일 :
+-pthread.h
+
+쓰레드 생성:
+-int pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine)(void *), void *arg);
+
+thread : 쓰레드 식별자
+attr : 쓰레드 특성을 지정하기 위해서 사용, 기본 쓰레드 특성을 이용하고자 할경우에 NULL 을 사용
+start_routine : 분기시켜서 실행할 쓰레드 함수
+arg : start_routine 쓰레드 함수의 매개변수
+
+스레드 종료 대기 (종료된 쓰레드는 모든 자원 반납):
+-int pthread_join(pthread_t th, void **thread_return);
+
+th : 기다릴 쓰레드의 식별자
+thread_return : 쓰레드의 리턴값
+
+--C언어 세마포어--
+헤더파일 : semaphore.h
+
+세마포어 생성 :
+-sem_t semaphore;
+
+세마포어 초기화 :
+-int sem_init(sem_t *sem, int ps hared, unsigned int value)
+
+sem : 초기화할 세마포어의 포인터
+pshared : 0일경우 프로세스 안에서 쓰레드끼리 공유, 그외는 프로세스간 공유
+value : 세마포어가 가지는 초기값 (0일경우 접근 불가, 1일경우 접근 가능)
+
+세마포어 하나 감소 :
+-sem_wait(sem_t *sem);
+
+세마포어 하나 증가
+-sem_post(sem_t *sem);
+
+세마포어 객체 소멸
+-sem_destroy(sem_t *sem);
