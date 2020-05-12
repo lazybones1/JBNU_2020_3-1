@@ -1,14 +1,15 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+#define buf_size 3
 int mutex=1,x=0; //상호배재, 버퍼크기 제어 변수, 아이템 수
 int p_pos=0,c_pos=0; //생산자, 소비자 위치
-int buf_size=3; // 버퍼의 크기
-int buf[3] = {0}; //버퍼, 처음은 0으로 모두 초기화
+int* buf; //버퍼, 처음은 0으로 모두 초기화
 
 int main()
 {
 	int n;
+  buf = (int*)malloc(sizeof(int)*buf_size);
 	void producer();
 	void consumer();
   void show_status();
