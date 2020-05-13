@@ -29,7 +29,7 @@ void show_graph(){
   for(int i = 0; i<N; i++){
     int r = (i+1)%5;
     printf(" phil %d ",i+1);
-    if(state[i] == 0) printf("<- fork %d <-- ", i+1);
+    if(state[i] == 0) printf("<- fork %d <--", i+1);
     else if(state[r] == 0) printf("--> fork %d ->", i+1);
     else printf("--> fork %d <--", i+1);
   }
@@ -93,7 +93,7 @@ void* philospher(void* num)
 		sleep(1);
 		take_fork(*i); //포크 잡기
 		sleep(0);
-		put_fork(*i); //포크 두기  
+		put_fork(*i); //포크 두기
     show_graph();
 	}
 }
