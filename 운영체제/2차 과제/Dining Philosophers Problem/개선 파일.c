@@ -23,8 +23,9 @@ void show_state(){
   printf("\n");
 }
 
-void show_graph(){
+void show_graph(int i){
   printf(" -----------------------------------------\n");
+  printf(" phil : %d end\n", i+1);
   show_state();
   for(int i = 0; i<N; i++){
     int r = (i+1)%5;
@@ -94,7 +95,7 @@ void* philospher(void* num)
 		take_fork(*i); //포크 잡기
 		sleep(0);
 		put_fork(*i); //포크 두기
-    show_graph();
+    show_graph(*i);
 	}
 }
 
