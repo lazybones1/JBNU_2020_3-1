@@ -18,24 +18,32 @@ sem_t S[N]; //세마포어
 
 void show_state(){
    for(int i = 0; i<N; i++){
-    printf(" %d", state[i]);
+    printf(" |phil %d : %d|",i+1, state[i]);
   }
   printf("\n");
 }
 
 void show_graph(int i){
+  sem_wait(&mutex);
   printf(" -----------------------------------------\n");
   printf(" phil : %d end\n", i+1);
   show_state();
   for(int i = 0; i<N; i++){
     int r = (i+1)%5;
-    printf(" phil %d ",i+1);
-    if(state[i] == 0) printf("<- fork %d <--", i+1);
-    else if(state[r] == 0) printf("--> fork %d ->", i+1);
-    else printf("--> fork %d <--", i+1);
+
+    if(state[i] == 0){
+      printf(" ───> |phil %d| <─── ",i+1);
+
+    }else if(state[i] == 1){
+      printf(" ---> |phil %d| <--- ",i+1);
+    }else if(state[i] == 2){
+      printf(" |phil %d| ",i+1);
+    }
+    printf("|fork %d|", i+1);
   }
   printf("\n");
   printf(" -----------------------------------------\n");
+  sem_post(&mutex);
 }
 
 void test(int phnum)
