@@ -33,7 +33,7 @@ void show_graph(int i){
   if(state[i] == 0){
    printf(" ───> |phil %d| <─── ",i+1);
   }else if(state[i] == 1){
-   printf(" ---> |phil %d| <--- ",i+1);
+   printf(" <--- |phil %d| ---> ",i+1);
   }else if(state[i] == 2){
    printf(" |phil %d| ",i+1);
   }
