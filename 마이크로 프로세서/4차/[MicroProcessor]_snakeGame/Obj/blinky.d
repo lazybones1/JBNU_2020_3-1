@@ -1,0 +1,13 @@
+.\obj\blinky.o: Blinky.c
+.\obj\blinky.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\blinky.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\obj\blinky.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
+.\obj\blinky.o: C:\Keil_v5\ARM\RV31\INC\RTL.h
+.\obj\blinky.o: C:\Keil_v5\ARM\INC\NXP\LPC17xx\LPC17xx.H
+.\obj\blinky.o: C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h
+.\obj\blinky.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\blinky.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h
+.\obj\blinky.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h
+.\obj\blinky.o: C:\Keil_v5\ARM\INC\NXP\LPC17xx\system_LPC17xx.h
+.\obj\blinky.o: GLCD.h
+.\obj\blinky.o: LED.h
