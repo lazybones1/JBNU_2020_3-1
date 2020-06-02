@@ -25,18 +25,13 @@ Section Cross References
     rtx_conf_cm.o(.text) refers to rtx_conf_cm.o(.data) for .data
     rtx_conf_cm.o(.text) refers to rt_mutex.o(i.rt_mut_wait) for rt_mut_wait
     rtx_conf_cm.o(.text) refers to rt_mutex.o(i.rt_mut_release) for rt_mut_release
-    blinky.o(.text) refers to glcd.o(.text) for GLCD_displayChar
     blinky.o(.text) refers to rand.o(.emb_text) for rand
-    blinky.o(.text) refers to led.o(.text) for LED_on
+    blinky.o(.text) refers to glcd.o(.text) for GLCD_displayChar
+    blinky.o(.text) refers to dflt_clz.o(x$fpl$dflt) for __aeabi_i2d
+    blinky.o(.text) refers to dmul.o(x$fpl$dmul) for __aeabi_dmul
+    blinky.o(.text) refers to dfix.o(x$fpl$dfix) for __aeabi_d2iz
     blinky.o(.text) refers to blinky.o(.data) for .data
-    blinky.o(.text) refers to rt_event.o(i.rt_evt_set) for rt_evt_set
-    blinky.o(.text) refers to rt_time.o(i.rt_dly_wait) for rt_dly_wait
-    blinky.o(.text) refers to rt_event.o(i.rt_evt_wait) for rt_evt_wait
     blinky.o(.text) refers to blinky.o(.bss) for .bss
-    blinky.o(.text) refers to rt_mutex.o(i.rt_mut_init) for rt_mut_init
-    blinky.o(.text) refers to rt_task.o(i.rt_tsk_create) for rt_tsk_create
-    blinky.o(.text) refers to rt_task.o(i.rt_tsk_delete) for rt_tsk_delete
-    blinky.o(.text) refers to system_lpc17xx.o(.text) for SystemInit
     glcd.o(.text) refers to glcd.o(.data) for .data
     led.o(.text) refers to led.o(.constdata) for .constdata
     rt_task.o(i.rt_block) refers to rt_list.o(i.rt_put_dly) for rt_put_dly
@@ -118,26 +113,6 @@ Section Cross References
     rt_task.o(i.rt_tsk_prio) refers to rtx_conf_cm.o(.bss) for os_active_TCB
     rt_task.o(i.rt_tsk_prio) refers to rt_list.o(.bss) for os_rdy
     rt_task.o(i.rt_tsk_self) refers to rt_task.o(.data) for .data
-    rt_event.o(i.isr_evt_set) refers to rt_list.o(i.rt_psq_enq) for rt_psq_enq
-    rt_event.o(i.isr_evt_set) refers to rt_system.o(i.rt_psh_req) for rt_psh_req
-    rt_event.o(i.isr_evt_set) refers to rtx_conf_cm.o(.bss) for os_active_TCB
-    rt_event.o(i.rt_evt_clr) refers to rtx_conf_cm.o(.bss) for os_active_TCB
-    rt_event.o(i.rt_evt_get) refers to rt_task.o(.data) for os_tsk
-    rt_event.o(i.rt_evt_psh) refers to rt_list.o(i.rt_rmv_dly) for rt_rmv_dly
-    rt_event.o(i.rt_evt_psh) refers to rt_list.o(i.rt_put_prio) for rt_put_prio
-    rt_event.o(i.rt_evt_psh) refers to rt_list.o(.bss) for os_rdy
-    rt_event.o(i.rt_evt_set) refers to rt_list.o(i.rt_rmv_dly) for rt_rmv_dly
-    rt_event.o(i.rt_evt_set) refers to rt_task.o(i.rt_dispatch) for rt_dispatch
-    rt_event.o(i.rt_evt_set) refers to rtx_conf_cm.o(.bss) for os_active_TCB
-    rt_event.o(i.rt_evt_wait) refers to rt_task.o(i.rt_block) for rt_block
-    rt_event.o(i.rt_evt_wait) refers to rt_task.o(.data) for os_tsk
-    rt_time.o(i.rt_dly_wait) refers to rt_task.o(i.rt_block) for rt_block
-    rt_time.o(i.rt_itv_set) refers to rt_task.o(.data) for os_tsk
-    rt_time.o(i.rt_itv_set) refers to rt_time.o(.data) for .data
-    rt_time.o(i.rt_itv_wait) refers to rt_task.o(i.rt_block) for rt_block
-    rt_time.o(i.rt_itv_wait) refers to rt_task.o(.data) for os_tsk
-    rt_time.o(i.rt_itv_wait) refers to rt_time.o(.data) for .data
-    rt_time.o(i.rt_time_get) refers to rt_time.o(.data) for .data
     rt_mutex.o(i.rt_mut_release) refers to rt_list.o(i.rt_get_first) for rt_get_first
     rt_mutex.o(i.rt_mut_release) refers to rt_list.o(i.rt_rmv_dly) for rt_rmv_dly
     rt_mutex.o(i.rt_mut_release) refers to rt_list.o(i.rt_put_prio) for rt_put_prio
@@ -218,6 +193,19 @@ Section Cross References
     hal_cm3.o(.emb_text) refers to rt_system.o(i.os_tick_irqack) for os_tick_irqack
     hal_cm3.o(i.dbg_init) refers to hal_cm3.o(.data) for .data
     hal_cm3.o(i.rt_init_stack) refers to rtx_conf_cm.o(.constdata) for os_stackinfo
+    rt_event.o(i.isr_evt_set) refers to rt_list.o(i.rt_psq_enq) for rt_psq_enq
+    rt_event.o(i.isr_evt_set) refers to rt_system.o(i.rt_psh_req) for rt_psh_req
+    rt_event.o(i.isr_evt_set) refers to rtx_conf_cm.o(.bss) for os_active_TCB
+    rt_event.o(i.rt_evt_clr) refers to rtx_conf_cm.o(.bss) for os_active_TCB
+    rt_event.o(i.rt_evt_get) refers to rt_task.o(.data) for os_tsk
+    rt_event.o(i.rt_evt_psh) refers to rt_list.o(i.rt_rmv_dly) for rt_rmv_dly
+    rt_event.o(i.rt_evt_psh) refers to rt_list.o(i.rt_put_prio) for rt_put_prio
+    rt_event.o(i.rt_evt_psh) refers to rt_list.o(.bss) for os_rdy
+    rt_event.o(i.rt_evt_set) refers to rt_list.o(i.rt_rmv_dly) for rt_rmv_dly
+    rt_event.o(i.rt_evt_set) refers to rt_task.o(i.rt_dispatch) for rt_dispatch
+    rt_event.o(i.rt_evt_set) refers to rtx_conf_cm.o(.bss) for os_active_TCB
+    rt_event.o(i.rt_evt_wait) refers to rt_task.o(i.rt_block) for rt_block
+    rt_event.o(i.rt_evt_wait) refers to rt_task.o(.data) for os_tsk
     rt_mailbox.o(i.isr_mbx_receive) refers to rt_list.o(i.rt_psq_enq) for rt_psq_enq
     rt_mailbox.o(i.isr_mbx_receive) refers to rt_system.o(i.rt_psh_req) for rt_psh_req
     rt_mailbox.o(i.isr_mbx_send) refers to rt_list.o(i.rt_psq_enq) for rt_psq_enq
@@ -252,6 +240,13 @@ Section Cross References
     rt_semaphore.o(i.rt_sem_wait) refers to rt_list.o(i.rt_put_prio) for rt_put_prio
     rt_semaphore.o(i.rt_sem_wait) refers to rt_task.o(i.rt_block) for rt_block
     rt_semaphore.o(i.rt_sem_wait) refers to rt_task.o(.data) for os_tsk
+    rt_time.o(i.rt_dly_wait) refers to rt_task.o(i.rt_block) for rt_block
+    rt_time.o(i.rt_itv_set) refers to rt_task.o(.data) for os_tsk
+    rt_time.o(i.rt_itv_set) refers to rt_time.o(.data) for .data
+    rt_time.o(i.rt_itv_wait) refers to rt_task.o(i.rt_block) for rt_block
+    rt_time.o(i.rt_itv_wait) refers to rt_task.o(.data) for os_tsk
+    rt_time.o(i.rt_itv_wait) refers to rt_time.o(.data) for .data
+    rt_time.o(i.rt_time_get) refers to rt_time.o(.data) for .data
     rt_timer.o(i.rt_tmr_create) refers to rt_membox.o(i.rt_alloc_box) for rt_alloc_box
     rt_timer.o(i.rt_tmr_create) refers to rtx_conf_cm.o(.data) for m_tmr
     rt_timer.o(i.rt_tmr_create) refers to rt_timer.o(.data) for .data
@@ -270,6 +265,16 @@ Section Cross References
     rand.o(.text) refers to rand.o(.bss) for .bss
     rand.o(.bss) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000D) for __rt_lib_init_rand_2
     __main.o(!!!main) refers to __rtentry.o(.ARM.Collect$$rtentry$$00000000) for __rt_entry
+    dfix.o(x$fpl$dfix) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dfix.o(x$fpl$dfix) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
+    dfix.o(x$fpl$dfixr) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dfix.o(x$fpl$dfixr) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
+    dflt_clz.o(x$fpl$dfltu) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dflt_clz.o(x$fpl$dflt) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dflt_clz.o(x$fpl$dfltn) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dmul.o(x$fpl$dmul) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dmul.o(x$fpl$dmul) refers to dretinf.o(x$fpl$dretinf) for __fpl_dretinf
+    dmul.o(x$fpl$dmul) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
     __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for __rt_entry_li
     __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for __rt_entry_main
     __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000C) for __rt_entry_postli_1
@@ -285,6 +290,8 @@ Section Cross References
     libinit2.o(.ARM.Collect$$libinit$$00000018) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
     libinit2.o(.ARM.Collect$$libinit$$00000026) refers to argv_veneer.o(.emb_text) for __ARM_argv_veneer
     libinit2.o(.ARM.Collect$$libinit$$00000027) refers to argv_veneer.o(.emb_text) for __ARM_argv_veneer
+    dnaninf.o(x$fpl$dnaninf) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dretinf.o(x$fpl$dretinf) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
     __rtentry2.o(.ARM.Collect$$rtentry$$00000008) refers to boardinit2.o(.text) for _platform_post_stackheap_init
     __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) refers to libinit.o(.ARM.Collect$$libinit$$00000000) for __rt_lib_init
     __rtentry2.o(.ARM.Collect$$rtentry$$0000000B) refers to boardinit3.o(.text) for _platform_post_lib_init
@@ -381,6 +388,11 @@ Removing Unused input sections from the image.
 
     Removing system_lpc17xx.o(.rev16_text), (4 bytes).
     Removing system_lpc17xx.o(.revsh_text), (4 bytes).
+    Removing rtx_conf_cm.o(.bss), (404 bytes).
+    Removing rtx_conf_cm.o(.bss), (4112 bytes).
+    Removing rtx_conf_cm.o(.bss), (28 bytes).
+    Removing rtx_conf_cm.o(.constdata), (2 bytes).
+    Removing rtx_conf_cm.o(.constdata), (4 bytes).
     Removing rtx_conf_cm.o(.constdata), (4 bytes).
     Removing rtx_conf_cm.o(.constdata), (4 bytes).
     Removing rtx_conf_cm.o(.constdata), (2 bytes).
@@ -389,20 +401,26 @@ Removing Unused input sections from the image.
     Removing rtx_conf_cm.o(.constdata), (2 bytes).
     Removing blinky.o(.rev16_text), (4 bytes).
     Removing blinky.o(.revsh_text), (4 bytes).
+    Removing blinky.o(.bss), (16 bytes).
+    Removing blinky.o(.data), (4 bytes).
+    Removing blinky.o(.data), (4 bytes).
+    Removing blinky.o(.data), (4 bytes).
+    Removing blinky.o(.data), (4 bytes).
+    Removing blinky.o(.data), (4 bytes).
+    Removing blinky.o(.data), (4 bytes).
     Removing glcd.o(.rev16_text), (4 bytes).
     Removing glcd.o(.revsh_text), (4 bytes).
     Removing led.o(.rev16_text), (4 bytes).
     Removing led.o(.revsh_text), (4 bytes).
+    Removing led.o(.text), (212 bytes).
+    Removing led.o(.constdata), (32 bytes).
+    Removing rt_task.o(i.rt_init_context), (76 bytes).
     Removing rt_task.o(i.rt_sys_init), (340 bytes).
+    Removing rt_task.o(i.rt_tsk_create), (144 bytes).
+    Removing rt_task.o(i.rt_tsk_delete), (364 bytes).
     Removing rt_task.o(i.rt_tsk_pass), (48 bytes).
     Removing rt_task.o(i.rt_tsk_prio), (140 bytes).
     Removing rt_task.o(.bss), (56 bytes).
-    Removing rt_event.o(i.isr_evt_set), (40 bytes).
-    Removing rt_event.o(i.rt_evt_clr), (28 bytes).
-    Removing rt_event.o(i.rt_evt_get), (12 bytes).
-    Removing rt_time.o(i.rt_itv_set), (24 bytes).
-    Removing rt_time.o(i.rt_itv_wait), (40 bytes).
-    Removing rt_time.o(i.rt_time_get), (12 bytes).
     Removing rt_system.o(.emb_text), (0 bytes).
     Removing rt_system.o(i.os_tick_init), (40 bytes).
     Removing rt_system.o(i.rt_psh_req), (32 bytes).
@@ -417,6 +435,13 @@ Removing Unused input sections from the image.
     Removing rt_membox.o(i._calloc_box), (30 bytes).
     Removing rt_membox.o(i._init_box), (70 bytes).
     Removing hal_cm3.o(i.dbg_init), (48 bytes).
+    Removing hal_cm3.o(i.dbg_task_notify), (32 bytes).
+    Removing hal_cm3.o(i.rt_init_stack), (80 bytes).
+    Removing rt_event.o(i.isr_evt_set), (40 bytes).
+    Removing rt_event.o(i.rt_evt_clr), (28 bytes).
+    Removing rt_event.o(i.rt_evt_get), (12 bytes).
+    Removing rt_event.o(i.rt_evt_set), (96 bytes).
+    Removing rt_event.o(i.rt_evt_wait), (60 bytes).
     Removing rt_mailbox.o(i.isr_mbx_receive), (86 bytes).
     Removing rt_mailbox.o(i.isr_mbx_send), (14 bytes).
     Removing rt_mailbox.o(i.rt_mbx_check), (8 bytes).
@@ -427,10 +452,14 @@ Removing Unused input sections from the image.
     Removing rt_semaphore.o(i.rt_sem_init), (12 bytes).
     Removing rt_semaphore.o(i.rt_sem_send), (56 bytes).
     Removing rt_semaphore.o(i.rt_sem_wait), (64 bytes).
+    Removing rt_time.o(i.rt_dly_wait), (6 bytes).
+    Removing rt_time.o(i.rt_itv_set), (24 bytes).
+    Removing rt_time.o(i.rt_itv_wait), (40 bytes).
+    Removing rt_time.o(i.rt_time_get), (12 bytes).
     Removing rt_timer.o(i.rt_tmr_create), (80 bytes).
     Removing rt_timer.o(i.rt_tmr_kill), (52 bytes).
 
-50 unused section(s) (total 2313 bytes) removed from the image.
+72 unused section(s) (total 8005 bytes) removed from the image.
 
 ==============================================================================
 
@@ -441,62 +470,68 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     RESET                                    0x00000000   Section      204  startup_lpc17xx.o(RESET)
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
     ../clib/angel/dclz77c.s                  0x00000000   Number         0  __dclz77c.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_div0.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_div0.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0_sigfpe.o ABSOLUTE
     ../clib/angel/scatter.s                  0x00000000   Number         0  __scatter.o ABSOLUTE
     ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
-    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
     ../clib/longlong.s                       0x00000000   Number         0  lludivv7m.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_outer.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_formal.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
+    ../clib/stdlib.c                         0x00000000   Number         0  rand.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  rand.o ABSOLUTE
-    ../clib/stdlib.c                         0x00000000   Number         0  rand.o ABSOLUTE
+    ../fplib/dfix.s                          0x00000000   Number         0  dfix.o ABSOLUTE
+    ../fplib/dflt.s                          0x00000000   Number         0  dflt_clz.o ABSOLUTE
+    ../fplib/dmul.s                          0x00000000   Number         0  dmul.o ABSOLUTE
+    ../fplib/dnaninf.s                       0x00000000   Number         0  dnaninf.o ABSOLUTE
+    ../fplib/dretinf.s                       0x00000000   Number         0  dretinf.o ABSOLUTE
     ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
+    ../fplib/usenofp.s                       0x00000000   Number         0  usenofp.o ABSOLUTE
     Blinky.c                                 0x00000000   Number         0  blinky.o ABSOLUTE
     Blinky.c                                 0x00000000   Number         0  blinky.o ABSOLUTE
     GLCD.c                                   0x00000000   Number         0  glcd.o ABSOLUTE
@@ -582,95 +617,85 @@ Image Symbol Table
     .emb_text                                0x00000300   Section      340  hal_cm3.o(.emb_text)
     .text                                    0x00000454   Section        0  system_lpc17xx.o(.text)
     .text                                    0x00000624   Section        0  blinky.o(.text)
-    .text                                    0x00000aac   Section        0  glcd.o(.text)
-    delay                                    0x00000aad   Thumb Code    10  glcd.o(.text)
-    wr_pixel                                 0x00000ab7   Thumb Code    44  glcd.o(.text)
-    GLCD_SetX                                0x00000d6b   Thumb Code    48  glcd.o(.text)
-    GLCD_SetY                                0x00000d9b   Thumb Code    48  glcd.o(.text)
-    ssp_send                                 0x00000f01   Thumb Code    20  glcd.o(.text)
-    wr_cmd                                   0x00000f15   Thumb Code    26  glcd.o(.text)
-    wr_dat                                   0x00000f2f   Thumb Code    30  glcd.o(.text)
-    .text                                    0x00000f6c   Section        0  led.o(.text)
-    .text                                    0x00001040   Section      238  lludivv7m.o(.text)
-    .text                                    0x0000112e   Section       74  sys_stackheap_outer.o(.text)
-    .text                                    0x00001178   Section        0  exit.o(.text)
-    .text                                    0x0000118c   Section        0  sys_exit.o(.text)
-    .text                                    0x00001198   Section        0  indicate_semi.o(.text)
-    SVC_TABLE                                0x00001198   Section        4  svc_table.o(SVC_TABLE)
-    i.dbg_task_notify                        0x0000119c   Section        0  hal_cm3.o(i.dbg_task_notify)
-    i.dbg_task_switch                        0x000011bc   Section        0  hal_cm3.o(i.dbg_task_switch)
-    i.os_tick_irqack                         0x000011cc   Section        0  rt_system.o(i.os_tick_irqack)
-    i.rt_alloc_box                           0x000011ce   Section        0  rt_membox.o(i.rt_alloc_box)
-    i.rt_block                               0x000011e8   Section        0  rt_task.o(i.rt_block)
-    i.rt_chk_robin                           0x00001220   Section        0  rt_robin.o(i.rt_chk_robin)
-    i.rt_dec_dly                             0x00001268   Section        0  rt_list.o(i.rt_dec_dly)
-    i.rt_dispatch                            0x000012dc   Section        0  rt_task.o(i.rt_dispatch)
-    i.rt_dly_wait                            0x00001320   Section        0  rt_time.o(i.rt_dly_wait)
-    i.rt_evt_psh                             0x00001328   Section        0  rt_event.o(i.rt_evt_psh)
-    i.rt_evt_set                             0x00001374   Section        0  rt_event.o(i.rt_evt_set)
-    i.rt_evt_wait                            0x000013d4   Section        0  rt_event.o(i.rt_evt_wait)
-    i.rt_free_box                            0x00001410   Section        0  rt_membox.o(i.rt_free_box)
-    i.rt_get_first                           0x00001430   Section        0  rt_list.o(i.rt_get_first)
-    i.rt_init_context                        0x00001458   Section        0  rt_task.o(i.rt_init_context)
-    rt_init_context                          0x00001459   Thumb Code    70  rt_task.o(i.rt_init_context)
-    i.rt_init_stack                          0x000014a4   Section        0  hal_cm3.o(i.rt_init_stack)
-    i.rt_mbx_psh                             0x000014f4   Section        0  rt_mailbox.o(i.rt_mbx_psh)
-    i.rt_mut_init                            0x000015c8   Section        0  rt_mutex.o(i.rt_mut_init)
-    i.rt_mut_release                         0x000015d8   Section        0  rt_mutex.o(i.rt_mut_release)
-    i.rt_mut_wait                            0x000016bc   Section        0  rt_mutex.o(i.rt_mut_wait)
-    i.rt_pop_req                             0x00001724   Section        0  rt_system.o(i.rt_pop_req)
-    i.rt_put_dly                             0x000017a0   Section        0  rt_list.o(i.rt_put_dly)
-    i.rt_put_prio                            0x000017e8   Section        0  rt_list.o(i.rt_put_prio)
-    i.rt_put_rdy_first                       0x00001820   Section        0  rt_list.o(i.rt_put_rdy_first)
-    i.rt_resort_prio                         0x00001834   Section        0  rt_list.o(i.rt_resort_prio)
-    i.rt_rmv_dly                             0x00001868   Section        0  rt_list.o(i.rt_rmv_dly)
-    i.rt_rmv_list                            0x00001890   Section        0  rt_list.o(i.rt_rmv_list)
-    i.rt_sem_psh                             0x000018c0   Section        0  rt_semaphore.o(i.rt_sem_psh)
-    i.rt_stk_check                           0x000018f4   Section        0  rt_system.o(i.rt_stk_check)
-    i.rt_switch_req                          0x00001918   Section        0  rt_task.o(i.rt_switch_req)
-    i.rt_systick                             0x00001940   Section        0  rt_system.o(i.rt_systick)
-    i.rt_tmr_tick                            0x00001980   Section        0  rt_timer.o(i.rt_tmr_tick)
-    i.rt_tsk_create                          0x000019c0   Section        0  rt_task.o(i.rt_tsk_create)
-    i.rt_tsk_delete                          0x00001a50   Section        0  rt_task.o(i.rt_tsk_delete)
-    i.rt_tsk_self                            0x00001bbc   Section        0  rt_task.o(i.rt_tsk_self)
-    .constdata                               0x00001bcc   Section        2  rtx_conf_cm.o(.constdata)
-    .constdata                               0x00001bd0   Section        4  rtx_conf_cm.o(.constdata)
-    .constdata                               0x00001bd4   Section        1  rtx_conf_cm.o(.constdata)
-    .constdata                               0x00001bd8   Section        8  rtx_conf_cm.o(.constdata)
-    __tagsym$$used                           0x00001bd8   Number         0  rtx_conf_cm.o(.constdata)
-    __tagsym$$used                           0x00001bdc   Number         0  rtx_conf_cm.o(.constdata)
-    .constdata                               0x00001be0   Section       32  led.o(.constdata)
-    .constdata                               0x00001c00   Section        4  rt_system.o(.constdata)
-    __tagsym$$used                           0x00001c00   Number         0  rt_system.o(.constdata)
+    .text                                    0x00000954   Section        0  glcd.o(.text)
+    delay                                    0x00000955   Thumb Code    10  glcd.o(.text)
+    wr_pixel                                 0x0000095f   Thumb Code    44  glcd.o(.text)
+    GLCD_SetX                                0x00000c13   Thumb Code    48  glcd.o(.text)
+    GLCD_SetY                                0x00000c43   Thumb Code    48  glcd.o(.text)
+    ssp_send                                 0x00000da9   Thumb Code    20  glcd.o(.text)
+    wr_cmd                                   0x00000dbd   Thumb Code    26  glcd.o(.text)
+    wr_dat                                   0x00000dd7   Thumb Code    30  glcd.o(.text)
+    .text                                    0x00000e14   Section      238  lludivv7m.o(.text)
+    .text                                    0x00000f02   Section       74  sys_stackheap_outer.o(.text)
+    .text                                    0x00000f4c   Section        0  exit.o(.text)
+    .text                                    0x00000f60   Section        0  sys_exit.o(.text)
+    .text                                    0x00000f6c   Section        0  indicate_semi.o(.text)
+    SVC_TABLE                                0x00000f6c   Section        4  svc_table.o(SVC_TABLE)
+    i.dbg_task_switch                        0x00000f70   Section        0  hal_cm3.o(i.dbg_task_switch)
+    i.os_tick_irqack                         0x00000f80   Section        0  rt_system.o(i.os_tick_irqack)
+    i.rt_alloc_box                           0x00000f82   Section        0  rt_membox.o(i.rt_alloc_box)
+    i.rt_block                               0x00000f9c   Section        0  rt_task.o(i.rt_block)
+    i.rt_chk_robin                           0x00000fd4   Section        0  rt_robin.o(i.rt_chk_robin)
+    i.rt_dec_dly                             0x0000101c   Section        0  rt_list.o(i.rt_dec_dly)
+    i.rt_dispatch                            0x00001090   Section        0  rt_task.o(i.rt_dispatch)
+    i.rt_evt_psh                             0x000010d4   Section        0  rt_event.o(i.rt_evt_psh)
+    i.rt_free_box                            0x00001120   Section        0  rt_membox.o(i.rt_free_box)
+    i.rt_get_first                           0x00001140   Section        0  rt_list.o(i.rt_get_first)
+    i.rt_mbx_psh                             0x00001168   Section        0  rt_mailbox.o(i.rt_mbx_psh)
+    i.rt_mut_init                            0x0000123c   Section        0  rt_mutex.o(i.rt_mut_init)
+    i.rt_mut_release                         0x0000124c   Section        0  rt_mutex.o(i.rt_mut_release)
+    i.rt_mut_wait                            0x00001330   Section        0  rt_mutex.o(i.rt_mut_wait)
+    i.rt_pop_req                             0x00001398   Section        0  rt_system.o(i.rt_pop_req)
+    i.rt_put_dly                             0x00001414   Section        0  rt_list.o(i.rt_put_dly)
+    i.rt_put_prio                            0x0000145c   Section        0  rt_list.o(i.rt_put_prio)
+    i.rt_put_rdy_first                       0x00001494   Section        0  rt_list.o(i.rt_put_rdy_first)
+    i.rt_resort_prio                         0x000014a8   Section        0  rt_list.o(i.rt_resort_prio)
+    i.rt_rmv_dly                             0x000014dc   Section        0  rt_list.o(i.rt_rmv_dly)
+    i.rt_rmv_list                            0x00001504   Section        0  rt_list.o(i.rt_rmv_list)
+    i.rt_sem_psh                             0x00001534   Section        0  rt_semaphore.o(i.rt_sem_psh)
+    i.rt_stk_check                           0x00001568   Section        0  rt_system.o(i.rt_stk_check)
+    i.rt_switch_req                          0x0000158c   Section        0  rt_task.o(i.rt_switch_req)
+    i.rt_systick                             0x000015b4   Section        0  rt_system.o(i.rt_systick)
+    i.rt_tmr_tick                            0x000015f4   Section        0  rt_timer.o(i.rt_tmr_tick)
+    i.rt_tsk_self                            0x00001634   Section        0  rt_task.o(i.rt_tsk_self)
+    x$fpl$dfix                               0x00001644   Section       94  dfix.o(x$fpl$dfix)
+    x$fpl$dflt                               0x000016a2   Section       46  dflt_clz.o(x$fpl$dflt)
+    x$fpl$dmul                               0x000016d0   Section      340  dmul.o(x$fpl$dmul)
+    x$fpl$dnaninf                            0x00001824   Section      156  dnaninf.o(x$fpl$dnaninf)
+    x$fpl$dretinf                            0x000018c0   Section       12  dretinf.o(x$fpl$dretinf)
+    .constdata                               0x000018cc   Section        1  rtx_conf_cm.o(.constdata)
+    x$fpl$usenofp                            0x000018cc   Section        0  usenofp.o(x$fpl$usenofp)
+    .constdata                               0x000018d0   Section        8  rtx_conf_cm.o(.constdata)
+    __tagsym$$used                           0x000018d0   Number         0  rtx_conf_cm.o(.constdata)
+    __tagsym$$used                           0x000018d4   Number         0  rtx_conf_cm.o(.constdata)
+    .constdata                               0x000018d8   Section        4  rt_system.o(.constdata)
+    __tagsym$$used                           0x000018d8   Number         0  rt_system.o(.constdata)
     .data                                    0x10000000   Section        4  system_lpc17xx.o(.data)
     .data                                    0x10000004   Section        4  rtx_conf_cm.o(.data)
     .data                                    0x10000008   Section        4  rtx_conf_cm.o(.data)
     nr_mutex                                 0x10000008   Data           4  rtx_conf_cm.o(.data)
-    .data                                    0x1000000c   Section       72  blinky.o(.data)
-    .data                                    0x10000054   Section     5380  glcd.o(.data)
-    TextColor                                0x10000054   Data           2  glcd.o(.data)
-    BackColor                                0x10000056   Data           2  glcd.o(.data)
-    .data                                    0x10001558   Section        8  rt_task.o(.data)
-    .data                                    0x10001560   Section        4  rt_time.o(.data)
-    .data                                    0x10001564   Section        8  rt_robin.o(.data)
-    .data                                    0x1000156c   Section        1  hal_cm3.o(.data)
-    .data                                    0x10001570   Section        8  rt_timer.o(.data)
-    .bss                                     0x10001578   Section      404  rtx_conf_cm.o(.bss)
-    .bss                                     0x10001710   Section     4112  rtx_conf_cm.o(.bss)
-    .bss                                     0x10002720   Section      132  rtx_conf_cm.o(.bss)
-    .bss                                     0x100027a4   Section       28  rtx_conf_cm.o(.bss)
-    .bss                                     0x100027c0   Section      800  rtx_conf_cm.o(.bss)
-    std_libspace                             0x100027c0   Data         672  rtx_conf_cm.o(.bss)
-    std_libmutex                             0x10002a60   Data         128  rtx_conf_cm.o(.bss)
-    .bss                                     0x10002ae0   Section       16  blinky.o(.bss)
-    .bss                                     0x10002af0   Section       48  rt_list.o(.bss)
-    .bss                                     0x10002b20   Section       96  libspace.o(.bss)
-    .bss                                     0x10002b80   Section      228  rand.o(.bss)
-    HEAP                                     0x10002c68   Section        0  startup_lpc17xx.o(HEAP)
-    STACK                                    0x10002c68   Section      512  startup_lpc17xx.o(STACK)
-    Heap_Mem                                 0x10002c68   Data           0  startup_lpc17xx.o(HEAP)
-    Stack_Mem                                0x10002c68   Data         512  startup_lpc17xx.o(STACK)
-    __initial_sp                             0x10002e68   Data           0  startup_lpc17xx.o(STACK)
+    .data                                    0x1000000c   Section       44  blinky.o(.data)
+    .data                                    0x10000038   Section     5380  glcd.o(.data)
+    TextColor                                0x10000038   Data           2  glcd.o(.data)
+    BackColor                                0x1000003a   Data           2  glcd.o(.data)
+    .data                                    0x1000153c   Section        8  rt_task.o(.data)
+    .data                                    0x10001544   Section        8  rt_robin.o(.data)
+    .data                                    0x1000154c   Section        1  hal_cm3.o(.data)
+    .data                                    0x10001550   Section        4  rt_time.o(.data)
+    .data                                    0x10001554   Section        8  rt_timer.o(.data)
+    .bss                                     0x1000155c   Section      132  rtx_conf_cm.o(.bss)
+    .bss                                     0x100015e0   Section      800  rtx_conf_cm.o(.bss)
+    std_libspace                             0x100015e0   Data         672  rtx_conf_cm.o(.bss)
+    std_libmutex                             0x10001880   Data         128  rtx_conf_cm.o(.bss)
+    .bss                                     0x10001900   Section     1000  blinky.o(.bss)
+    .bss                                     0x10001ce8   Section       48  rt_list.o(.bss)
+    .bss                                     0x10001d18   Section       96  libspace.o(.bss)
+    .bss                                     0x10001d78   Section      228  rand.o(.bss)
+    HEAP                                     0x10001e60   Section        0  startup_lpc17xx.o(HEAP)
+    STACK                                    0x10001e60   Section      512  startup_lpc17xx.o(STACK)
+    Heap_Mem                                 0x10001e60   Data           0  startup_lpc17xx.o(HEAP)
+    Stack_Mem                                0x10001e60   Data         512  startup_lpc17xx.o(STACK)
+    __initial_sp                             0x10002060   Data           0  startup_lpc17xx.o(STACK)
 
     Global Symbols
 
@@ -828,131 +853,107 @@ Image Symbol Table
     SystemCoreClockUpdate                    0x00000455   Thumb Code   262  system_lpc17xx.o(.text)
     __RL_RTX_VER                             0x00000475   Number         0  rt_system.o ABSOLUTE
     SystemInit                               0x0000055b   Thumb Code   172  system_lpc17xx.o(.text)
-    missileMove                              0x00000625   Thumb Code    48  blinky.o(.text)
-    fire                                     0x00000655   Thumb Code    16  blinky.o(.text)
-    createMeteo                              0x00000665   Thumb Code    44  blinky.o(.text)
-    gameOver                                 0x00000691   Thumb Code    72  blinky.o(.text)
-    moveMeteo                                0x000006d9   Thumb Code    64  blinky.o(.text)
-    fighterCrash                             0x00000719   Thumb Code    28  blinky.o(.text)
-    meteoCrash                               0x00000735   Thumb Code    48  blinky.o(.text)
-    fighterMove                              0x00000765   Thumb Code    72  blinky.o(.text)
-    gameInit                                 0x000007ad   Thumb Code    60  blinky.o(.text)
-    joyStick                                 0x000007e9   Thumb Code    46  blinky.o(.text)
-    runGame                                  0x00000817   Thumb Code    46  blinky.o(.text)
-    LED_On                                   0x00000845   Thumb Code     4  blinky.o(.text)
-    LED_Off                                  0x00000849   Thumb Code     4  blinky.o(.text)
-    signal_func                              0x0000084d   Thumb Code    66  blinky.o(.text)
-    phaseA                                   0x0000088f   Thumb Code    38  blinky.o(.text)
-    phaseB                                   0x000008b5   Thumb Code    38  blinky.o(.text)
-    phaseC                                   0x000008db   Thumb Code    38  blinky.o(.text)
-    phaseD                                   0x00000901   Thumb Code    38  blinky.o(.text)
-    clocks                                   0x00000927   Thumb Code    42  blinky.o(.text)
-    lcd                                      0x00000951   Thumb Code    38  blinky.o(.text)
-    init                                     0x00000977   Thumb Code   278  blinky.o(.text)
-    main                                     0x00000a8d   Thumb Code    30  blinky.o(.text)
-    GLCD_init                                0x00000ae3   Thumb Code   648  glcd.o(.text)
-    GLCD_putPixel                            0x00000dcb   Thumb Code    34  glcd.o(.text)
-    GLCD_setTextColor                        0x00000ded   Thumb Code     6  glcd.o(.text)
-    GLCD_setBackColor                        0x00000df3   Thumb Code     6  glcd.o(.text)
-    GLCD_clear                               0x00000df9   Thumb Code    48  glcd.o(.text)
-    GLCD_drawChar                            0x00000e29   Thumb Code    78  glcd.o(.text)
-    GLCD_displayChar                         0x00000e77   Thumb Code    18  glcd.o(.text)
-    GLCD_displayStringLn                     0x00000e89   Thumb Code    62  glcd.o(.text)
-    GLCD_clearLn                             0x00000ec7   Thumb Code     4  glcd.o(.text)
-    GLCD_bitmap                              0x00000ecb   Thumb Code    54  glcd.o(.text)
-    LED_init                                 0x00000f6d   Thumb Code    20  led.o(.text)
-    LED_on                                   0x00000f81   Thumb Code    52  led.o(.text)
-    LED_off                                  0x00000fb5   Thumb Code    52  led.o(.text)
-    LED_out                                  0x00000fe9   Thumb Code    80  led.o(.text)
-    __aeabi_uldivmod                         0x00001041   Thumb Code     0  lludivv7m.o(.text)
-    _ll_udiv                                 0x00001041   Thumb Code   238  lludivv7m.o(.text)
-    __user_setup_stackheap                   0x0000112f   Thumb Code    74  sys_stackheap_outer.o(.text)
-    exit                                     0x00001179   Thumb Code    18  exit.o(.text)
-    _sys_exit                                0x0000118d   Thumb Code     8  sys_exit.o(.text)
-    SVC_Count                                0x00001198   Data           4  svc_table.o(SVC_TABLE)
-    __semihosting_library_function           0x00001199   Thumb Code     0  indicate_semi.o(.text)
-    SVC_Table                                0x0000119c   Data           0  svc_table.o(SVC_TABLE)
-    dbg_task_notify                          0x0000119d   Thumb Code    32  hal_cm3.o(i.dbg_task_notify)
-    dbg_task_switch                          0x000011bd   Thumb Code    16  hal_cm3.o(i.dbg_task_switch)
-    os_tick_irqack                           0x000011cd   Thumb Code     2  rt_system.o(i.os_tick_irqack)
-    rt_alloc_box                             0x000011cf   Thumb Code    26  rt_membox.o(i.rt_alloc_box)
-    rt_block                                 0x000011e9   Thumb Code    48  rt_task.o(i.rt_block)
-    rt_chk_robin                             0x00001221   Thumb Code    60  rt_robin.o(i.rt_chk_robin)
-    rt_dec_dly                               0x00001269   Thumb Code   106  rt_list.o(i.rt_dec_dly)
-    rt_dispatch                              0x000012dd   Thumb Code    60  rt_task.o(i.rt_dispatch)
-    rt_dly_wait                              0x00001321   Thumb Code     6  rt_time.o(i.rt_dly_wait)
-    rt_evt_psh                               0x00001329   Thumb Code    72  rt_event.o(i.rt_evt_psh)
-    rt_evt_set                               0x00001375   Thumb Code    90  rt_event.o(i.rt_evt_set)
-    rt_evt_wait                              0x000013d5   Thumb Code    56  rt_event.o(i.rt_evt_wait)
-    rt_free_box                              0x00001411   Thumb Code    32  rt_membox.o(i.rt_free_box)
-    rt_get_first                             0x00001431   Thumb Code    40  rt_list.o(i.rt_get_first)
-    rt_init_stack                            0x000014a5   Thumb Code    70  hal_cm3.o(i.rt_init_stack)
-    rt_mbx_psh                               0x000014f5   Thumb Code   206  rt_mailbox.o(i.rt_mbx_psh)
-    rt_mut_init                              0x000015c9   Thumb Code    16  rt_mutex.o(i.rt_mut_init)
-    rt_mut_release                           0x000015d9   Thumb Code   220  rt_mutex.o(i.rt_mut_release)
-    rt_mut_wait                              0x000016bd   Thumb Code   100  rt_mutex.o(i.rt_mut_wait)
-    rt_pop_req                               0x00001725   Thumb Code   112  rt_system.o(i.rt_pop_req)
-    rt_put_dly                               0x000017a1   Thumb Code    68  rt_list.o(i.rt_put_dly)
-    rt_put_prio                              0x000017e9   Thumb Code    54  rt_list.o(i.rt_put_prio)
-    rt_put_rdy_first                         0x00001821   Thumb Code    14  rt_list.o(i.rt_put_rdy_first)
-    rt_resort_prio                           0x00001835   Thumb Code    46  rt_list.o(i.rt_resort_prio)
-    rt_rmv_dly                               0x00001869   Thumb Code    40  rt_list.o(i.rt_rmv_dly)
-    rt_rmv_list                              0x00001891   Thumb Code    44  rt_list.o(i.rt_rmv_list)
-    rt_sem_psh                               0x000018c1   Thumb Code    46  rt_semaphore.o(i.rt_sem_psh)
-    rt_stk_check                             0x000018f5   Thumb Code    28  rt_system.o(i.rt_stk_check)
-    rt_switch_req                            0x00001919   Thumb Code    30  rt_task.o(i.rt_switch_req)
-    rt_systick                               0x00001941   Thumb Code    50  rt_system.o(i.rt_systick)
-    rt_tmr_tick                              0x00001981   Thumb Code    56  rt_timer.o(i.rt_tmr_tick)
-    rt_tsk_create                            0x000019c1   Thumb Code   122  rt_task.o(i.rt_tsk_create)
-    rt_tsk_delete                            0x00001a51   Thumb Code   336  rt_task.o(i.rt_tsk_delete)
-    rt_tsk_self                              0x00001bbd   Thumb Code    12  rt_task.o(i.rt_tsk_self)
-    os_maxtaskrun                            0x00001bcc   Data           2  rtx_conf_cm.o(.constdata)
-    os_stackinfo                             0x00001bd0   Data           4  rtx_conf_cm.o(.constdata)
-    os_flags                                 0x00001bd4   Data           1  rtx_conf_cm.o(.constdata)
-    os_clockrate                             0x00001bd8   Data           4  rtx_conf_cm.o(.constdata)
-    os_timernum                              0x00001bdc   Data           4  rtx_conf_cm.o(.constdata)
-    led_mask                                 0x00001be0   Data          32  led.o(.constdata)
-    RL_RTX_Version                           0x00001c00   Data           4  rt_system.o(.constdata)
-    Region$$Table$$Base                      0x00001c04   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00001c24   Number         0  anon$$obj.o(Region$$Table)
+    createMeteo                              0x00000625   Thumb Code    40  blinky.o(.text)
+    missileMove                              0x0000064d   Thumb Code   168  blinky.o(.text)
+    fire                                     0x000006f5   Thumb Code    44  blinky.o(.text)
+    gameOver                                 0x00000721   Thumb Code    72  blinky.o(.text)
+    moveMeteo                                0x00000769   Thumb Code    66  blinky.o(.text)
+    fighterCrash                             0x000007ab   Thumb Code    28  blinky.o(.text)
+    fighterMove                              0x000007c7   Thumb Code    70  blinky.o(.text)
+    gameInit                                 0x0000080d   Thumb Code    64  blinky.o(.text)
+    joyStick                                 0x0000084d   Thumb Code    62  blinky.o(.text)
+    runGame                                  0x0000088b   Thumb Code    46  blinky.o(.text)
+    main                                     0x000008b9   Thumb Code    22  blinky.o(.text)
+    GLCD_init                                0x0000098b   Thumb Code   648  glcd.o(.text)
+    GLCD_putPixel                            0x00000c73   Thumb Code    34  glcd.o(.text)
+    GLCD_setTextColor                        0x00000c95   Thumb Code     6  glcd.o(.text)
+    GLCD_setBackColor                        0x00000c9b   Thumb Code     6  glcd.o(.text)
+    GLCD_clear                               0x00000ca1   Thumb Code    48  glcd.o(.text)
+    GLCD_drawChar                            0x00000cd1   Thumb Code    78  glcd.o(.text)
+    GLCD_displayChar                         0x00000d1f   Thumb Code    18  glcd.o(.text)
+    GLCD_displayStringLn                     0x00000d31   Thumb Code    62  glcd.o(.text)
+    GLCD_clearLn                             0x00000d6f   Thumb Code     4  glcd.o(.text)
+    GLCD_bitmap                              0x00000d73   Thumb Code    54  glcd.o(.text)
+    __aeabi_uldivmod                         0x00000e15   Thumb Code     0  lludivv7m.o(.text)
+    _ll_udiv                                 0x00000e15   Thumb Code   238  lludivv7m.o(.text)
+    __user_setup_stackheap                   0x00000f03   Thumb Code    74  sys_stackheap_outer.o(.text)
+    exit                                     0x00000f4d   Thumb Code    18  exit.o(.text)
+    _sys_exit                                0x00000f61   Thumb Code     8  sys_exit.o(.text)
+    SVC_Count                                0x00000f6c   Data           4  svc_table.o(SVC_TABLE)
+    __semihosting_library_function           0x00000f6d   Thumb Code     0  indicate_semi.o(.text)
+    SVC_Table                                0x00000f70   Data           0  svc_table.o(SVC_TABLE)
+    dbg_task_switch                          0x00000f71   Thumb Code    16  hal_cm3.o(i.dbg_task_switch)
+    os_tick_irqack                           0x00000f81   Thumb Code     2  rt_system.o(i.os_tick_irqack)
+    rt_alloc_box                             0x00000f83   Thumb Code    26  rt_membox.o(i.rt_alloc_box)
+    rt_block                                 0x00000f9d   Thumb Code    48  rt_task.o(i.rt_block)
+    rt_chk_robin                             0x00000fd5   Thumb Code    60  rt_robin.o(i.rt_chk_robin)
+    rt_dec_dly                               0x0000101d   Thumb Code   106  rt_list.o(i.rt_dec_dly)
+    rt_dispatch                              0x00001091   Thumb Code    60  rt_task.o(i.rt_dispatch)
+    rt_evt_psh                               0x000010d5   Thumb Code    72  rt_event.o(i.rt_evt_psh)
+    rt_free_box                              0x00001121   Thumb Code    32  rt_membox.o(i.rt_free_box)
+    rt_get_first                             0x00001141   Thumb Code    40  rt_list.o(i.rt_get_first)
+    rt_mbx_psh                               0x00001169   Thumb Code   206  rt_mailbox.o(i.rt_mbx_psh)
+    rt_mut_init                              0x0000123d   Thumb Code    16  rt_mutex.o(i.rt_mut_init)
+    rt_mut_release                           0x0000124d   Thumb Code   220  rt_mutex.o(i.rt_mut_release)
+    rt_mut_wait                              0x00001331   Thumb Code   100  rt_mutex.o(i.rt_mut_wait)
+    rt_pop_req                               0x00001399   Thumb Code   112  rt_system.o(i.rt_pop_req)
+    rt_put_dly                               0x00001415   Thumb Code    68  rt_list.o(i.rt_put_dly)
+    rt_put_prio                              0x0000145d   Thumb Code    54  rt_list.o(i.rt_put_prio)
+    rt_put_rdy_first                         0x00001495   Thumb Code    14  rt_list.o(i.rt_put_rdy_first)
+    rt_resort_prio                           0x000014a9   Thumb Code    46  rt_list.o(i.rt_resort_prio)
+    rt_rmv_dly                               0x000014dd   Thumb Code    40  rt_list.o(i.rt_rmv_dly)
+    rt_rmv_list                              0x00001505   Thumb Code    44  rt_list.o(i.rt_rmv_list)
+    rt_sem_psh                               0x00001535   Thumb Code    46  rt_semaphore.o(i.rt_sem_psh)
+    rt_stk_check                             0x00001569   Thumb Code    28  rt_system.o(i.rt_stk_check)
+    rt_switch_req                            0x0000158d   Thumb Code    30  rt_task.o(i.rt_switch_req)
+    rt_systick                               0x000015b5   Thumb Code    50  rt_system.o(i.rt_systick)
+    rt_tmr_tick                              0x000015f5   Thumb Code    56  rt_timer.o(i.rt_tmr_tick)
+    rt_tsk_self                              0x00001635   Thumb Code    12  rt_task.o(i.rt_tsk_self)
+    __aeabi_d2iz                             0x00001645   Thumb Code     0  dfix.o(x$fpl$dfix)
+    _dfix                                    0x00001645   Thumb Code    94  dfix.o(x$fpl$dfix)
+    __aeabi_i2d                              0x000016a3   Thumb Code     0  dflt_clz.o(x$fpl$dflt)
+    _dflt                                    0x000016a3   Thumb Code    46  dflt_clz.o(x$fpl$dflt)
+    __aeabi_dmul                             0x000016d1   Thumb Code     0  dmul.o(x$fpl$dmul)
+    _dmul                                    0x000016d1   Thumb Code   332  dmul.o(x$fpl$dmul)
+    __fpl_dnaninf                            0x00001825   Thumb Code   156  dnaninf.o(x$fpl$dnaninf)
+    __fpl_dretinf                            0x000018c1   Thumb Code    12  dretinf.o(x$fpl$dretinf)
+    __I$use$fp                               0x000018cc   Number         0  usenofp.o(x$fpl$usenofp)
+    os_flags                                 0x000018cc   Data           1  rtx_conf_cm.o(.constdata)
+    os_clockrate                             0x000018d0   Data           4  rtx_conf_cm.o(.constdata)
+    os_timernum                              0x000018d4   Data           4  rtx_conf_cm.o(.constdata)
+    RL_RTX_Version                           0x000018d8   Data           4  rt_system.o(.constdata)
+    Region$$Table$$Base                      0x000018dc   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x000018fc   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x10000000   Data           4  system_lpc17xx.o(.data)
     m_tmr                                    0x10000004   Data           4  rtx_conf_cm.o(.data)
     fighter_shape                            0x1000000c   Data           1  blinky.o(.data)
     meteo_shape                              0x1000000d   Data           1  blinky.o(.data)
     missile_shape                            0x1000000e   Data           1  blinky.o(.data)
-    t_phaseA                                 0x10000010   Data           4  blinky.o(.data)
-    t_phaseB                                 0x10000014   Data           4  blinky.o(.data)
-    t_phaseC                                 0x10000018   Data           4  blinky.o(.data)
-    t_phaseD                                 0x1000001c   Data           4  blinky.o(.data)
-    t_clock                                  0x10000020   Data           4  blinky.o(.data)
-    t_lcd                                    0x10000024   Data           4  blinky.o(.data)
-    key                                      0x10000028   Data           4  blinky.o(.data)
-    fighter_posX                             0x1000002c   Data           4  blinky.o(.data)
-    fighter_posY                             0x10000030   Data           4  blinky.o(.data)
-    meteo_posX                               0x10000034   Data           4  blinky.o(.data)
-    meteo_posY                               0x10000038   Data           4  blinky.o(.data)
-    inGame                                   0x1000003c   Data           4  blinky.o(.data)
-    isShoot                                  0x10000040   Data           4  blinky.o(.data)
-    isPassed                                 0x10000044   Data           4  blinky.o(.data)
-    isMissile                                0x10000048   Data           4  blinky.o(.data)
-    missile_posX                             0x1000004c   Data           4  blinky.o(.data)
-    missile_posY                             0x10000050   Data           4  blinky.o(.data)
-    ASCII_Table                              0x10000058   Data        5376  glcd.o(.data)
-    os_tsk                                   0x10001558   Data           8  rt_task.o(.data)
-    os_time                                  0x10001560   Data           4  rt_time.o(.data)
-    os_robin                                 0x10001564   Data           8  rt_robin.o(.data)
-    dbg_msg                                  0x1000156c   Data           1  hal_cm3.o(.data)
-    os_tmr                                   0x10001570   Data           8  rt_timer.o(.data)
-    mp_tcb                                   0x10001578   Data         404  rtx_conf_cm.o(.bss)
-    mp_stk                                   0x10001710   Data        4112  rtx_conf_cm.o(.bss)
-    os_fifo                                  0x10002720   Data         132  rtx_conf_cm.o(.bss)
-    os_active_TCB                            0x100027a4   Data          28  rtx_conf_cm.o(.bss)
-    mut_GLCD                                 0x10002ae0   Data          16  blinky.o(.bss)
-    os_rdy                                   0x10002af0   Data          24  rt_list.o(.bss)
-    os_dly                                   0x10002b08   Data          24  rt_list.o(.bss)
-    __libspace_start                         0x10002b20   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x10002b80   Data           0  libspace.o(.bss)
-    _random_number_data                      0x10002b80   Data         228  rand.o(.bss)
+    key                                      0x10000010   Data           4  blinky.o(.data)
+    fighter_posX                             0x10000014   Data           4  blinky.o(.data)
+    fighter_posY                             0x10000018   Data           4  blinky.o(.data)
+    meteo_posX                               0x1000001c   Data           4  blinky.o(.data)
+    meteo_posY                               0x10000020   Data           4  blinky.o(.data)
+    meteo_speed                              0x10000024   Data           4  blinky.o(.data)
+    inGame                                   0x10000028   Data           4  blinky.o(.data)
+    isShoot                                  0x1000002c   Data           4  blinky.o(.data)
+    isPassed                                 0x10000030   Data           4  blinky.o(.data)
+    missile_num                              0x10000034   Data           4  blinky.o(.data)
+    ASCII_Table                              0x1000003c   Data        5376  glcd.o(.data)
+    os_tsk                                   0x1000153c   Data           8  rt_task.o(.data)
+    os_robin                                 0x10001544   Data           8  rt_robin.o(.data)
+    dbg_msg                                  0x1000154c   Data           1  hal_cm3.o(.data)
+    os_time                                  0x10001550   Data           4  rt_time.o(.data)
+    os_tmr                                   0x10001554   Data           8  rt_timer.o(.data)
+    os_fifo                                  0x1000155c   Data         132  rtx_conf_cm.o(.bss)
+    isMissile                                0x10001900   Data         200  blinky.o(.bss)
+    missile_posX                             0x100019c8   Data         400  blinky.o(.bss)
+    missile_posY                             0x10001b58   Data         400  blinky.o(.bss)
+    os_rdy                                   0x10001ce8   Data          24  rt_list.o(.bss)
+    os_dly                                   0x10001d00   Data          24  rt_list.o(.bss)
+    __libspace_start                         0x10001d18   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x10001d78   Data           0  libspace.o(.bss)
+    _random_number_data                      0x10001d78   Data         228  rand.o(.bss)
 
 
 
@@ -962,157 +963,144 @@ Memory Map of the image
 
   Image Entry point : 0x000000cd
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x0000319c, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x000023b8])
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00002e58, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x00002090])
 
-    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00001c24, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000018fc, Max: 0x00080000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000   0x00000000   0x000000cc   Data   RO            3    RESET               startup_lpc17xx.o
-    0x000000cc   0x000000cc   0x00000008   Code   RO          793  * !!!main             c_w.l(__main.o)
-    0x000000d4   0x000000d4   0x00000034   Code   RO          959    !!!scatter          c_w.l(__scatter.o)
-    0x00000108   0x00000108   0x00000064   Code   RO          957    !!dclz77c           c_w.l(__dclz77c.o)
-    0x0000016c   0x0000016c   0x0000001c   Code   RO          961    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x00000188   0x00000188   0x00000002   Code   RO          883    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x0000018a   0x0000018a   0x00000000   Code   RO          801    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
-    0x0000018a   0x0000018a   0x00000000   Code   RO          803    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
-    0x0000018a   0x0000018a   0x00000000   Code   RO          806    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
-    0x0000018a   0x0000018a   0x00000000   Code   RO          808    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x0000018a   0x0000018a   0x00000004   Code   RO          809    .ARM.Collect$$libinit$$0000000D  c_w.l(libinit2.o)
-    0x0000018e   0x0000018e   0x00000000   Code   RO          810    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
-    0x0000018e   0x0000018e   0x00000000   Code   RO          813    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
-    0x0000018e   0x0000018e   0x00000000   Code   RO          815    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x0000018e   0x0000018e   0x00000000   Code   RO          817    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x0000018e   0x0000018e   0x00000000   Code   RO          819    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x0000018e   0x0000018e   0x00000000   Code   RO          821    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x0000018e   0x0000018e   0x00000000   Code   RO          823    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x0000018e   0x0000018e   0x00000000   Code   RO          825    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x0000018e   0x0000018e   0x00000000   Code   RO          827    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x0000018e   0x0000018e   0x00000000   Code   RO          829    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x0000018e   0x0000018e   0x00000000   Code   RO          831    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x0000018e   0x0000018e   0x00000000   Code   RO          833    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
-    0x0000018e   0x0000018e   0x00000000   Code   RO          837    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
-    0x0000018e   0x0000018e   0x00000000   Code   RO          839    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x0000018e   0x0000018e   0x00000000   Code   RO          841    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x0000018e   0x0000018e   0x00000000   Code   RO          843    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
-    0x0000018e   0x0000018e   0x00000002   Code   RO          844    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
-    0x00000190   0x00000190   0x00000002   Code   RO          924    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x00000192   0x00000192   0x00000000   Code   RO          940    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
-    0x00000192   0x00000192   0x00000000   Code   RO          942    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
-    0x00000192   0x00000192   0x00000000   Code   RO          945    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
-    0x00000192   0x00000192   0x00000000   Code   RO          948    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
-    0x00000192   0x00000192   0x00000000   Code   RO          950    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
-    0x00000192   0x00000192   0x00000000   Code   RO          953    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
-    0x00000192   0x00000192   0x00000002   Code   RO          954    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
-    0x00000194   0x00000194   0x00000000   Code   RO          795    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
-    0x00000194   0x00000194   0x00000000   Code   RO          846    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
-    0x00000194   0x00000194   0x00000006   Code   RO          858    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
-    0x0000019a   0x0000019a   0x00000000   Code   RO          848    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
-    0x0000019a   0x0000019a   0x00000004   Code   RO          849    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
-    0x0000019e   0x0000019e   0x00000000   Code   RO          851    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
-    0x0000019e   0x0000019e   0x00000008   Code   RO          852    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
-    0x000001a6   0x000001a6   0x00000002   Code   RO          886    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x000001a8   0x000001a8   0x00000000   Code   RO          906    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x000001a8   0x000001a8   0x00000004   Code   RO          907    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x000001ac   0x000001ac   0x00000006   Code   RO          908    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x000000cc   0x000000cc   0x00000008   Code   RO          800  * !!!main             c_w.l(__main.o)
+    0x000000d4   0x000000d4   0x00000034   Code   RO          983    !!!scatter          c_w.l(__scatter.o)
+    0x00000108   0x00000108   0x00000064   Code   RO          981    !!dclz77c           c_w.l(__dclz77c.o)
+    0x0000016c   0x0000016c   0x0000001c   Code   RO          985    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x00000188   0x00000188   0x00000002   Code   RO          907    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x0000018a   0x0000018a   0x00000000   Code   RO          820    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
+    0x0000018a   0x0000018a   0x00000000   Code   RO          822    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x0000018a   0x0000018a   0x00000000   Code   RO          825    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
+    0x0000018a   0x0000018a   0x00000000   Code   RO          827    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x0000018a   0x0000018a   0x00000004   Code   RO          828    .ARM.Collect$$libinit$$0000000D  c_w.l(libinit2.o)
+    0x0000018e   0x0000018e   0x00000000   Code   RO          829    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x0000018e   0x0000018e   0x00000000   Code   RO          832    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x0000018e   0x0000018e   0x00000000   Code   RO          834    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x0000018e   0x0000018e   0x00000000   Code   RO          836    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x0000018e   0x0000018e   0x00000000   Code   RO          838    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x0000018e   0x0000018e   0x00000000   Code   RO          840    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x0000018e   0x0000018e   0x00000000   Code   RO          842    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x0000018e   0x0000018e   0x00000000   Code   RO          844    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x0000018e   0x0000018e   0x00000000   Code   RO          846    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x0000018e   0x0000018e   0x00000000   Code   RO          848    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x0000018e   0x0000018e   0x00000000   Code   RO          850    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x0000018e   0x0000018e   0x00000000   Code   RO          852    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x0000018e   0x0000018e   0x00000000   Code   RO          856    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
+    0x0000018e   0x0000018e   0x00000000   Code   RO          858    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x0000018e   0x0000018e   0x00000000   Code   RO          860    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x0000018e   0x0000018e   0x00000000   Code   RO          862    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x0000018e   0x0000018e   0x00000002   Code   RO          863    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
+    0x00000190   0x00000190   0x00000002   Code   RO          948    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x00000192   0x00000192   0x00000000   Code   RO          964    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
+    0x00000192   0x00000192   0x00000000   Code   RO          966    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
+    0x00000192   0x00000192   0x00000000   Code   RO          969    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
+    0x00000192   0x00000192   0x00000000   Code   RO          972    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
+    0x00000192   0x00000192   0x00000000   Code   RO          974    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
+    0x00000192   0x00000192   0x00000000   Code   RO          977    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x00000192   0x00000192   0x00000002   Code   RO          978    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
+    0x00000194   0x00000194   0x00000000   Code   RO          814    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x00000194   0x00000194   0x00000000   Code   RO          870    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x00000194   0x00000194   0x00000006   Code   RO          882    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
+    0x0000019a   0x0000019a   0x00000000   Code   RO          872    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
+    0x0000019a   0x0000019a   0x00000004   Code   RO          873    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x0000019e   0x0000019e   0x00000000   Code   RO          875    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x0000019e   0x0000019e   0x00000008   Code   RO          876    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x000001a6   0x000001a6   0x00000002   Code   RO          910    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x000001a8   0x000001a8   0x00000000   Code   RO          930    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x000001a8   0x000001a8   0x00000004   Code   RO          931    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x000001ac   0x000001ac   0x00000006   Code   RO          932    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
     0x000001b2   0x000001b2   0x00000002   PAD
-    0x000001b4   0x000001b4   0x00000034   Code   RO          786    .emb_text           c_w.l(rand.o)
+    0x000001b4   0x000001b4   0x00000034   Code   RO          793    .emb_text           c_w.l(rand.o)
     0x000001e8   0x000001e8   0x0000003c   Code   RO            5    .text               startup_lpc17xx.o
     0x00000224   0x00000224   0x0000008c   Code   RO           56    .text               rtx_conf_cm.o
-    0x000002b0   0x000002b0   0x00000008   Code   RO          781    .text               c_w.l(libspace.o)
-    0x000002b8   0x000002b8   0x0000003c   Code   RO          787    .text               c_w.l(rand.o)
-    0x000002f4   0x000002f4   0x00000006   Code   RO          791    .text               c_w.l(heapauxi.o)
-    0x000002fa   0x000002fa   0x00000002   Code   RO          902    .text               c_w.l(use_no_semi.o)
+    0x000002b0   0x000002b0   0x00000008   Code   RO          788    .text               c_w.l(libspace.o)
+    0x000002b8   0x000002b8   0x0000003c   Code   RO          794    .text               c_w.l(rand.o)
+    0x000002f4   0x000002f4   0x00000006   Code   RO          798    .text               c_w.l(heapauxi.o)
+    0x000002fa   0x000002fa   0x00000002   Code   RO          926    .text               c_w.l(use_no_semi.o)
     0x000002fc   0x000002fc   0x00000004   Code   RO            4    .ARM.__at_0x02FC    startup_lpc17xx.o
-    0x00000300   0x00000300   0x00000154   Code   RO          624    .emb_text           RTX_CM3.LIB(hal_cm3.o)
+    0x00000300   0x00000300   0x00000154   Code   RO          556    .emb_text           RTX_CM3.LIB(hal_cm3.o)
     0x00000454   0x00000454   0x000001d0   Code   RO           15    .text               system_lpc17xx.o
-    0x00000624   0x00000624   0x00000486   Code   RO           96    .text               blinky.o
-    0x00000aaa   0x00000aaa   0x00000002   PAD
-    0x00000aac   0x00000aac   0x000004c0   Code   RO          150    .text               glcd.o
-    0x00000f6c   0x00000f6c   0x000000d4   Code   RO          182    .text               led.o
-    0x00001040   0x00001040   0x000000ee   Code   RO          784    .text               c_w.l(lludivv7m.o)
-    0x0000112e   0x0000112e   0x0000004a   Code   RO          866    .text               c_w.l(sys_stackheap_outer.o)
-    0x00001178   0x00001178   0x00000012   Code   RO          868    .text               c_w.l(exit.o)
-    0x0000118a   0x0000118a   0x00000002   PAD
-    0x0000118c   0x0000118c   0x0000000c   Code   RO          900    .text               c_w.l(sys_exit.o)
-    0x00001198   0x00001198   0x00000000   Code   RO          904    .text               c_w.l(indicate_semi.o)
-    0x00001198   0x00001198   0x00000004   Code   RO          776    SVC_TABLE           RTX_CM3.LIB(svc_table.o)
-    0x0000119c   0x0000119c   0x00000020   Code   RO          626    i.dbg_task_notify   RTX_CM3.LIB(hal_cm3.o)
-    0x000011bc   0x000011bc   0x00000010   Code   RO          627    i.dbg_task_switch   RTX_CM3.LIB(hal_cm3.o)
-    0x000011cc   0x000011cc   0x00000002   Code   RO          407    i.os_tick_irqack    RTX_CM3.LIB(rt_system.o)
-    0x000011ce   0x000011ce   0x0000001a   Code   RO          592    i.rt_alloc_box      RTX_CM3.LIB(rt_membox.o)
-    0x000011e8   0x000011e8   0x00000038   Code   RO          203    i.rt_block          RTX_CM3.LIB(rt_task.o)
-    0x00001220   0x00001220   0x00000048   Code   RO          569    i.rt_chk_robin      RTX_CM3.LIB(rt_robin.o)
-    0x00001268   0x00001268   0x00000074   Code   RO          490    i.rt_dec_dly        RTX_CM3.LIB(rt_list.o)
-    0x000012dc   0x000012dc   0x00000044   Code   RO          204    i.rt_dispatch       RTX_CM3.LIB(rt_task.o)
-    0x00001320   0x00001320   0x00000006   Code   RO          348    i.rt_dly_wait       RTX_CM3.LIB(rt_time.o)
-    0x00001326   0x00001326   0x00000002   PAD
-    0x00001328   0x00001328   0x0000004c   Code   RO          305    i.rt_evt_psh        RTX_CM3.LIB(rt_event.o)
-    0x00001374   0x00001374   0x00000060   Code   RO          306    i.rt_evt_set        RTX_CM3.LIB(rt_event.o)
-    0x000013d4   0x000013d4   0x0000003c   Code   RO          307    i.rt_evt_wait       RTX_CM3.LIB(rt_event.o)
-    0x00001410   0x00001410   0x00000020   Code   RO          593    i.rt_free_box       RTX_CM3.LIB(rt_membox.o)
-    0x00001430   0x00001430   0x00000028   Code   RO          491    i.rt_get_first      RTX_CM3.LIB(rt_list.o)
-    0x00001458   0x00001458   0x0000004c   Code   RO          205    i.rt_init_context   RTX_CM3.LIB(rt_task.o)
-    0x000014a4   0x000014a4   0x00000050   Code   RO          628    i.rt_init_stack     RTX_CM3.LIB(hal_cm3.o)
-    0x000014f4   0x000014f4   0x000000d4   Code   RO          669    i.rt_mbx_psh        RTX_CM3.LIB(rt_mailbox.o)
-    0x000015c8   0x000015c8   0x00000010   Code   RO          381    i.rt_mut_init       RTX_CM3.LIB(rt_mutex.o)
-    0x000015d8   0x000015d8   0x000000e4   Code   RO          382    i.rt_mut_release    RTX_CM3.LIB(rt_mutex.o)
-    0x000016bc   0x000016bc   0x00000068   Code   RO          383    i.rt_mut_wait       RTX_CM3.LIB(rt_mutex.o)
-    0x00001724   0x00001724   0x0000007c   Code   RO          408    i.rt_pop_req        RTX_CM3.LIB(rt_system.o)
-    0x000017a0   0x000017a0   0x00000048   Code   RO          494    i.rt_put_dly        RTX_CM3.LIB(rt_list.o)
-    0x000017e8   0x000017e8   0x00000036   Code   RO          495    i.rt_put_prio       RTX_CM3.LIB(rt_list.o)
-    0x0000181e   0x0000181e   0x00000002   PAD
-    0x00001820   0x00001820   0x00000014   Code   RO          496    i.rt_put_rdy_first  RTX_CM3.LIB(rt_list.o)
-    0x00001834   0x00001834   0x00000034   Code   RO          497    i.rt_resort_prio    RTX_CM3.LIB(rt_list.o)
-    0x00001868   0x00001868   0x00000028   Code   RO          498    i.rt_rmv_dly        RTX_CM3.LIB(rt_list.o)
-    0x00001890   0x00001890   0x00000030   Code   RO          499    i.rt_rmv_list       RTX_CM3.LIB(rt_list.o)
-    0x000018c0   0x000018c0   0x00000034   Code   RO          715    i.rt_sem_psh        RTX_CM3.LIB(rt_semaphore.o)
-    0x000018f4   0x000018f4   0x00000024   Code   RO          411    i.rt_stk_check      RTX_CM3.LIB(rt_system.o)
-    0x00001918   0x00001918   0x00000028   Code   RO          206    i.rt_switch_req     RTX_CM3.LIB(rt_task.o)
-    0x00001940   0x00001940   0x00000040   Code   RO          413    i.rt_systick        RTX_CM3.LIB(rt_system.o)
-    0x00001980   0x00001980   0x00000040   Code   RO          751    i.rt_tmr_tick       RTX_CM3.LIB(rt_timer.o)
-    0x000019c0   0x000019c0   0x00000090   Code   RO          208    i.rt_tsk_create     RTX_CM3.LIB(rt_task.o)
-    0x00001a50   0x00001a50   0x0000016c   Code   RO          209    i.rt_tsk_delete     RTX_CM3.LIB(rt_task.o)
-    0x00001bbc   0x00001bbc   0x00000010   Code   RO          212    i.rt_tsk_self       RTX_CM3.LIB(rt_task.o)
-    0x00001bcc   0x00001bcc   0x00000002   Data   RO           62    .constdata          rtx_conf_cm.o
-    0x00001bce   0x00001bce   0x00000002   PAD
-    0x00001bd0   0x00001bd0   0x00000004   Data   RO           63    .constdata          rtx_conf_cm.o
-    0x00001bd4   0x00001bd4   0x00000001   Data   RO           66    .constdata          rtx_conf_cm.o
-    0x00001bd5   0x00001bd5   0x00000003   PAD
-    0x00001bd8   0x00001bd8   0x00000008   Data   RO           67    .constdata          rtx_conf_cm.o
-    0x00001be0   0x00001be0   0x00000020   Data   RO          183    .constdata          led.o
-    0x00001c00   0x00001c00   0x00000004   Data   RO          416    .constdata          RTX_CM3.LIB(rt_system.o)
-    0x00001c04   0x00001c04   0x00000020   Data   RO          955    Region$$Table       anon$$obj.o
+    0x00000624   0x00000624   0x00000330   Code   RO           96    .text               blinky.o
+    0x00000954   0x00000954   0x000004c0   Code   RO          157    .text               glcd.o
+    0x00000e14   0x00000e14   0x000000ee   Code   RO          791    .text               c_w.l(lludivv7m.o)
+    0x00000f02   0x00000f02   0x0000004a   Code   RO          890    .text               c_w.l(sys_stackheap_outer.o)
+    0x00000f4c   0x00000f4c   0x00000012   Code   RO          892    .text               c_w.l(exit.o)
+    0x00000f5e   0x00000f5e   0x00000002   PAD
+    0x00000f60   0x00000f60   0x0000000c   Code   RO          924    .text               c_w.l(sys_exit.o)
+    0x00000f6c   0x00000f6c   0x00000000   Code   RO          928    .text               c_w.l(indicate_semi.o)
+    0x00000f6c   0x00000f6c   0x00000004   Code   RO          783    SVC_TABLE           RTX_CM3.LIB(svc_table.o)
+    0x00000f70   0x00000f70   0x00000010   Code   RO          559    i.dbg_task_switch   RTX_CM3.LIB(hal_cm3.o)
+    0x00000f80   0x00000f80   0x00000002   Code   RO          339    i.os_tick_irqack    RTX_CM3.LIB(rt_system.o)
+    0x00000f82   0x00000f82   0x0000001a   Code   RO          524    i.rt_alloc_box      RTX_CM3.LIB(rt_membox.o)
+    0x00000f9c   0x00000f9c   0x00000038   Code   RO          210    i.rt_block          RTX_CM3.LIB(rt_task.o)
+    0x00000fd4   0x00000fd4   0x00000048   Code   RO          501    i.rt_chk_robin      RTX_CM3.LIB(rt_robin.o)
+    0x0000101c   0x0000101c   0x00000074   Code   RO          422    i.rt_dec_dly        RTX_CM3.LIB(rt_list.o)
+    0x00001090   0x00001090   0x00000044   Code   RO          211    i.rt_dispatch       RTX_CM3.LIB(rt_task.o)
+    0x000010d4   0x000010d4   0x0000004c   Code   RO          600    i.rt_evt_psh        RTX_CM3.LIB(rt_event.o)
+    0x00001120   0x00001120   0x00000020   Code   RO          525    i.rt_free_box       RTX_CM3.LIB(rt_membox.o)
+    0x00001140   0x00001140   0x00000028   Code   RO          423    i.rt_get_first      RTX_CM3.LIB(rt_list.o)
+    0x00001168   0x00001168   0x000000d4   Code   RO          643    i.rt_mbx_psh        RTX_CM3.LIB(rt_mailbox.o)
+    0x0000123c   0x0000123c   0x00000010   Code   RO          309    i.rt_mut_init       RTX_CM3.LIB(rt_mutex.o)
+    0x0000124c   0x0000124c   0x000000e4   Code   RO          310    i.rt_mut_release    RTX_CM3.LIB(rt_mutex.o)
+    0x00001330   0x00001330   0x00000068   Code   RO          311    i.rt_mut_wait       RTX_CM3.LIB(rt_mutex.o)
+    0x00001398   0x00001398   0x0000007c   Code   RO          340    i.rt_pop_req        RTX_CM3.LIB(rt_system.o)
+    0x00001414   0x00001414   0x00000048   Code   RO          426    i.rt_put_dly        RTX_CM3.LIB(rt_list.o)
+    0x0000145c   0x0000145c   0x00000036   Code   RO          427    i.rt_put_prio       RTX_CM3.LIB(rt_list.o)
+    0x00001492   0x00001492   0x00000002   PAD
+    0x00001494   0x00001494   0x00000014   Code   RO          428    i.rt_put_rdy_first  RTX_CM3.LIB(rt_list.o)
+    0x000014a8   0x000014a8   0x00000034   Code   RO          429    i.rt_resort_prio    RTX_CM3.LIB(rt_list.o)
+    0x000014dc   0x000014dc   0x00000028   Code   RO          430    i.rt_rmv_dly        RTX_CM3.LIB(rt_list.o)
+    0x00001504   0x00001504   0x00000030   Code   RO          431    i.rt_rmv_list       RTX_CM3.LIB(rt_list.o)
+    0x00001534   0x00001534   0x00000034   Code   RO          689    i.rt_sem_psh        RTX_CM3.LIB(rt_semaphore.o)
+    0x00001568   0x00001568   0x00000024   Code   RO          343    i.rt_stk_check      RTX_CM3.LIB(rt_system.o)
+    0x0000158c   0x0000158c   0x00000028   Code   RO          213    i.rt_switch_req     RTX_CM3.LIB(rt_task.o)
+    0x000015b4   0x000015b4   0x00000040   Code   RO          345    i.rt_systick        RTX_CM3.LIB(rt_system.o)
+    0x000015f4   0x000015f4   0x00000040   Code   RO          758    i.rt_tmr_tick       RTX_CM3.LIB(rt_timer.o)
+    0x00001634   0x00001634   0x00000010   Code   RO          219    i.rt_tsk_self       RTX_CM3.LIB(rt_task.o)
+    0x00001644   0x00001644   0x0000005e   Code   RO          802    x$fpl$dfix          fz_ws.l(dfix.o)
+    0x000016a2   0x000016a2   0x0000002e   Code   RO          807    x$fpl$dflt          fz_ws.l(dflt_clz.o)
+    0x000016d0   0x000016d0   0x00000154   Code   RO          812    x$fpl$dmul          fz_ws.l(dmul.o)
+    0x00001824   0x00001824   0x0000009c   Code   RO          864    x$fpl$dnaninf       fz_ws.l(dnaninf.o)
+    0x000018c0   0x000018c0   0x0000000c   Code   RO          866    x$fpl$dretinf       fz_ws.l(dretinf.o)
+    0x000018cc   0x000018cc   0x00000000   Code   RO          868    x$fpl$usenofp       fz_ws.l(usenofp.o)
+    0x000018cc   0x000018cc   0x00000001   Data   RO           66    .constdata          rtx_conf_cm.o
+    0x000018cd   0x000018cd   0x00000003   PAD
+    0x000018d0   0x000018d0   0x00000008   Data   RO           67    .constdata          rtx_conf_cm.o
+    0x000018d8   0x000018d8   0x00000004   Data   RO          348    .constdata          RTX_CM3.LIB(rt_system.o)
+    0x000018dc   0x000018dc   0x00000020   Data   RO          979    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x10000000, Load base: 0x00001c24, Size: 0x00002e68, Max: 0x00008000, ABSOLUTE, COMPRESSED[0x00000794])
+    Execution Region RW_IRAM1 (Exec base: 0x10000000, Load base: 0x000018fc, Size: 0x00002060, Max: 0x00008000, ABSOLUTE, COMPRESSED[0x00000794])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x10000000   COMPRESSED   0x00000004   Data   RW           16    .data               system_lpc17xx.o
     0x10000004   COMPRESSED   0x00000004   Data   RW           72    .data               rtx_conf_cm.o
     0x10000008   COMPRESSED   0x00000004   Data   RW           73    .data               rtx_conf_cm.o
-    0x1000000c   COMPRESSED   0x00000048   Data   RW           98    .data               blinky.o
-    0x10000054   COMPRESSED   0x00001504   Data   RW          151    .data               glcd.o
-    0x10001558   COMPRESSED   0x00000008   Data   RW          214    .data               RTX_CM3.LIB(rt_task.o)
-    0x10001560   COMPRESSED   0x00000004   Data   RW          352    .data               RTX_CM3.LIB(rt_time.o)
-    0x10001564   COMPRESSED   0x00000008   Data   RW          571    .data               RTX_CM3.LIB(rt_robin.o)
-    0x1000156c   COMPRESSED   0x00000001   Data   RW          629    .data               RTX_CM3.LIB(hal_cm3.o)
-    0x1000156d   COMPRESSED   0x00000003   PAD
-    0x10001570   COMPRESSED   0x00000008   Data   RW          752    .data               RTX_CM3.LIB(rt_timer.o)
-    0x10001578        -       0x00000194   Zero   RW           57    .bss                rtx_conf_cm.o
-    0x1000170c   COMPRESSED   0x00000004   PAD
-    0x10001710        -       0x00001010   Zero   RW           58    .bss                rtx_conf_cm.o
-    0x10002720        -       0x00000084   Zero   RW           59    .bss                rtx_conf_cm.o
-    0x100027a4        -       0x0000001c   Zero   RW           60    .bss                rtx_conf_cm.o
-    0x100027c0        -       0x00000320   Zero   RW           61    .bss                rtx_conf_cm.o
-    0x10002ae0        -       0x00000010   Zero   RW           97    .bss                blinky.o
-    0x10002af0        -       0x00000030   Zero   RW          500    .bss                RTX_CM3.LIB(rt_list.o)
-    0x10002b20        -       0x00000060   Zero   RW          782    .bss                c_w.l(libspace.o)
-    0x10002b80        -       0x000000e4   Zero   RW          788    .bss                c_w.l(rand.o)
-    0x10002c64   COMPRESSED   0x00000004   PAD
-    0x10002c68        -       0x00000000   Zero   RW            2    HEAP                startup_lpc17xx.o
-    0x10002c68        -       0x00000200   Zero   RW            1    STACK               startup_lpc17xx.o
+    0x1000000c   COMPRESSED   0x0000002c   Data   RW          105    .data               blinky.o
+    0x10000038   COMPRESSED   0x00001504   Data   RW          158    .data               glcd.o
+    0x1000153c   COMPRESSED   0x00000008   Data   RW          221    .data               RTX_CM3.LIB(rt_task.o)
+    0x10001544   COMPRESSED   0x00000008   Data   RW          503    .data               RTX_CM3.LIB(rt_robin.o)
+    0x1000154c   COMPRESSED   0x00000001   Data   RW          561    .data               RTX_CM3.LIB(hal_cm3.o)
+    0x1000154d   COMPRESSED   0x00000003   PAD
+    0x10001550   COMPRESSED   0x00000004   Data   RW          727    .data               RTX_CM3.LIB(rt_time.o)
+    0x10001554   COMPRESSED   0x00000008   Data   RW          759    .data               RTX_CM3.LIB(rt_timer.o)
+    0x1000155c        -       0x00000084   Zero   RW           59    .bss                rtx_conf_cm.o
+    0x100015e0        -       0x00000320   Zero   RW           61    .bss                rtx_conf_cm.o
+    0x10001900        -       0x000003e8   Zero   RW           97    .bss                blinky.o
+    0x10001ce8        -       0x00000030   Zero   RW          432    .bss                RTX_CM3.LIB(rt_list.o)
+    0x10001d18        -       0x00000060   Zero   RW          789    .bss                c_w.l(libspace.o)
+    0x10001d78        -       0x000000e4   Zero   RW          795    .bss                c_w.l(rand.o)
+    0x10001e5c   COMPRESSED   0x00000004   PAD
+    0x10001e60        -       0x00000000   Zero   RW            2    HEAP                startup_lpc17xx.o
+    0x10001e60        -       0x00000200   Zero   RW            1    STACK               startup_lpc17xx.o
 
 
 ==============================================================================
@@ -1122,24 +1110,23 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1158        140          0         72         16      11653   blinky.o
-      1216         54          0       5380          0       5220   glcd.o
-       212          8         32          0          0       1561   led.o
-       140         26         15          8       5476      10281   rtx_conf_cm.o
-        64         26        204          0        512        992   startup_lpc17xx.o
-       464         30          0          4          0       5521   system_lpc17xx.o
+       816        134          0         44       1000      11223   blinky.o
+      1216         54          0       5380          0       5252   glcd.o
+       140         26          9          8        932      10297   rtx_conf_cm.o
+        64         26        204          0        512       1008   startup_lpc17xx.o
+       464         30          0          4          0       5537   system_lpc17xx.o
 
     ----------------------------------------------------------------------
-      3256        284        288       5464       6008      35228   Object Totals
+      2700        270        248       5436       2444      33317   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         2          0          5          0          4          0   (incl. Padding)
+         0          0          3          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
 
-       468         42          0          1          0       2406   hal_cm3.o
-       232         14          0          0          0       1868   rt_event.o
+       356         32          0          1          0       1328   hal_cm3.o
+        76          4          0          0          0        613   rt_event.o
        442         30          0          0         48       4490   rt_list.o
        212          6          0          0          0        781   rt_mailbox.o
         58          0          0          0          0       1037   rt_membox.o
@@ -1147,8 +1134,8 @@ Image component sizes
         72         12          0          8          0        670   rt_robin.o
         52          6          0          0          0        537   rt_semaphore.o
        226         34          4          0          0       2596   rt_system.o
-       764         86          0          8          0       6572   rt_task.o
-         6          0          0          4          0        576   rt_time.o
+       180         30          0          8          0       4352   rt_task.o
+         0          0          0          4          0        174   rt_time.o
         64          8          0          8          0        631   rt_timer.o
          4          4          0          0          0        168   svc_table.o
        100          0          0          0          0          0   __dclz77c.o
@@ -1173,20 +1160,27 @@ Image component sizes
         12          4          0          0          0         68   sys_exit.o
         74          0          0          0          0         80   sys_stackheap_outer.o
          2          0          0          0          0         68   use_no_semi.o
+        94          4          0          0          0         92   dfix.o
+        46          0          0          0          0         68   dflt_clz.o
+       340         12          0          0          0        104   dmul.o
+       156          4          0          0          0         92   dnaninf.o
+        12          0          0          0          0         68   dretinf.o
+         0          0          0          0          0          0   usenofp.o
 
     ----------------------------------------------------------------------
-      3656        288          4         32        376      25069   Library Totals
-         8          0          0          3          4          0   (incl. Padding)
+      3444        232          4         32        376      20538   Library Totals
+         6          0          0          3          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
 
-      2948        254          4         29         48      24225   RTX_CM3.LIB
+      2090        178          4         29         48      19270   RTX_CM3.LIB
        700         34          0          0        324        844   c_w.l
+       648         20          0          0          0        424   fz_ws.l
 
     ----------------------------------------------------------------------
-      3656        288          4         32        376      25069   Library Totals
+      3444        232          4         32        376      20538   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -1195,15 +1189,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      6912        572        292       5496       6384      58057   Grand Totals
-      6912        572        292       1940       6384      58057   ELF Image Totals (compressed)
-      6912        572        292       1940          0          0   ROM Totals
+      6144        502        252       5468       2820      51875   Grand Totals
+      6144        502        252       1940       2820      51875   ELF Image Totals (compressed)
+      6144        502        252       1940          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 7204 (   7.04kB)
-    Total RW  Size (RW Data + ZI Data)             11880 (  11.60kB)
-    Total ROM Size (Code + RO Data + RW Data)       9144 (   8.93kB)
+    Total RO  Size (Code + RO Data)                 6396 (   6.25kB)
+    Total RW  Size (RW Data + ZI Data)              8288 (   8.09kB)
+    Total ROM Size (Code + RO Data + RW Data)       8336 (   8.14kB)
 
 ==============================================================================
 
