@@ -235,7 +235,7 @@ void lfu()
     dispPgFaultCnt();
 }
  
-void secondchance()
+void clock() 
 {
     int usedbit[50];
     int victimptr=0;
@@ -328,44 +328,30 @@ void nur(){
   dispPgFaultCnt(); // 페이지 부재 수 출력
 }
 
-void clock(){
-  int refbit[50],  qindex= 0, bn = 0; //참조 비트,  큐인덱스
+void secondchance(){
   initialize(); //초기화
-  for(i=0; i<n; i++){
-    printf("\nFor %d:",in[i]);
-    if(isHit(in[i])){ //페이지 적중시
-      printf("No page fault!");
+  for(i=0; i<n; i++) //요구 페이지 n개
+  {
+    printf("\nFor %d :",in[i]); //순서 표기
+    if(isHit(in[i])==0) //적중 실패
+    { 
+      for(k=0; k<nf-1; k++) //맨 앞의 원소 제거
+        p[k]=p[k+1]; 
+      p[k]=in[i]; // 맨 뒤에 원소 추가
+      pgfaultcnt++; //페이지 교체 수 증가
+      dispPages(); //현재 프레임의 원소 표시
+    }
+    else if(isHit(in[i])){//적중 성공
+      printf("No page fault");
       int hitindex=getHitIndex(in[i]);
-      if(refbit[hitindex]==0) 
-        refbit[hitindex]=1;//교체한 프레임 참조 비트 = 1
-    }
-    else{
-      pgfaultcnt++; //페이지 부재 횟수 증가
-      if(bn<nf){ //프레임이 가득 차지 않았을경우
-        p[bn]=in[i]; 
-        refbit[bn] = 0;
-        qindex++;         
-        bn++;
+      int stored = p[hitindex];
+      for(j=hitindex; j<nf-1; j++){
+        p[j] = p[j+1];
       }
-      else{
-        while(1){ // 대상페이지를 찾을때 까지
-          if(refbit[qindex] == 0){ //대상페이지 선정              
-            p[qindex] = in[i]; //페이지 교체              
-            qindex++;
-            break;
-          }
-          else{ //참조비트가 1인경우
-            refbit[qindex] = 0; //참조비트를 0으로 변경후
-            qindex++; //인덱스를 이동
-            if(qindex == nf) qindex = 0;
-          }
-        }
-      }
-      dispPages(); //프레임 상태 출력        
+      p[j] = stored;
     }
-    if(qindex==nf) qindex = 0;    
   }
-  dispPgFaultCnt(); // 페이지 부재 수 출력
+  dispPgFaultCnt();
 }
 
 int main()
@@ -373,7 +359,7 @@ int main()
     int choice;
     while(1)
     {
-        printf("\nPage Replacement Algorithms\n1.Enter data\n2.FIFO\n3.Optimal\n4.LRU\n5.LFU\n6.Second Chance\n7.NUR\n8.Clock\n9.Exit\nEnter your choice:");
+        printf("\nPage Replacement Algorithms\n1.Enter data\n2.FIFO\n3.Optimal\n4.LRU\n5.LFU\n6.Clock\n7.NUR\n8.Second Chance\n9.Exit\nEnter your choice:");
         scanf("%d",&choice);
         switch(choice)
         {
@@ -393,13 +379,13 @@ int main()
             lfu();
             break;
         case 6:
-            secondchance();
+            clock();
             break;
         case 7:
             nur();
             break;
         case 8:
-            clock();
+            secondchance();
             break;
         default:
             return 0;
