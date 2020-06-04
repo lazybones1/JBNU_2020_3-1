@@ -1,0 +1,42 @@
+Dependencies for Project 'Blinky', Target 'MCB1700': (DO NOT MODIFY !)
+F (.\startup_LPC17xx.s)(0x5209992A)(--cpu Cortex-M3 --pd "__RTX SETA 1" -g --apcs=interwork -I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include-I C:\Keil_v5\ARM\Inc\NXP--list .\lst\startup_lpc17xx.lst --xref -o .\obj\startup_lpc17xx.o --depend .\obj\startup_lpc17xx.d)
+F (.\system_LPC17xx.c)(0x53F444A7)(-c --cpu Cortex-M3 -D__RTX -g -O1 --apcs=interwork -IC:\Keil_v5\ARM\INC\NXP\LPC17xx-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include-I C:\Keil_v5\ARM\Inc\NXP-o .\obj\system_lpc17xx.o --omf_browse .\obj\system_lpc17xx.crf --depend .\obj\system_lpc17xx.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53462C34)
+I (C:\Keil_v5\ARM\INC\NXP\LPC17xx\LPC17xx.h)(0x520999CC)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cm3.h)(0x538418B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cmInstr.h)(0x530294C0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cmFunc.h)(0x530294C0)
+I (C:\Keil_v5\ARM\INC\NXP\LPC17xx\system_LPC17xx.h)(0x520999CC)
+F (.\RTX_Conf_CM.c)(0x53F44406)(-c --cpu Cortex-M3 -D__RTX -g -O1 --apcs=interwork -IC:\Keil_v5\ARM\INC\NXP\LPC17xx-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include-I C:\Keil_v5\ARM\Inc\NXP-o .\obj\rtx_conf_cm.o --omf_browse .\obj\rtx_conf_cm.crf --depend .\obj\rtx_conf_cm.d)
+I (C:\Keil_v5\ARM\RV31\INC\RTL.h)(0x5244EDB0)
+I (C:\Keil_v5\ARM\RV31\INC\RTX_lib.c)(0x51C7ACF6)
+F (.\Blinky.c)(0x540575E6)(-c --cpu Cortex-M3 -D__RTX -g -O1 --apcs=interwork -IC:\Keil_v5\ARM\INC\NXP\LPC17xx-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include-I C:\Keil_v5\ARM\Inc\NXP-o .\obj\blinky.o --omf_browse .\obj\blinky.crf --depend .\obj\blinky.d)
+I (C:\Keil_v5\ARM\RV31\INC\RTL.h)(0x5244EDB0)
+I (C:\Keil_v5\ARM\INC\NXP\LPC17xx\LPC17xx.H)(0x520999CC)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cm3.h)(0x538418B6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53462C34)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cmInstr.h)(0x530294C0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cmFunc.h)(0x530294C0)
+I (C:\Keil_v5\ARM\INC\NXP\LPC17xx\system_LPC17xx.h)(0x520999CC)
+I (GLCD.h)(0x540575E6)
+I (LED.h)(0x4A027556)
+F (.\GLCD.c)(0x54057676)(-c --cpu Cortex-M3 -D__RTX -g -O1 --apcs=interwork -IC:\Keil_v5\ARM\INC\NXP\LPC17xx-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include-I C:\Keil_v5\ARM\Inc\NXP-o .\obj\glcd.o --omf_browse .\obj\glcd.crf --depend .\obj\glcd.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53462C34)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x53462C34)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x53462C34)
+I (C:\Keil_v5\ARM\INC\NXP\LPC17xx\LPC17xx.H)(0x520999CC)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cm3.h)(0x538418B6)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cmInstr.h)(0x530294C0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cmFunc.h)(0x530294C0)
+I (C:\Keil_v5\ARM\INC\NXP\LPC17xx\system_LPC17xx.h)(0x520999CC)
+I (GLCD.h)(0x540575E6)
+I (font.h)(0x4A027556)
+F (.\LED.c)(0x4B55B148)(-c --cpu Cortex-M3 -D__RTX -g -O1 --apcs=interwork -IC:\Keil_v5\ARM\INC\NXP\LPC17xx-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include-I C:\Keil_v5\ARM\Inc\NXP-o .\obj\led.o --omf_browse .\obj\led.crf --depend .\obj\led.d)
+I (C:\Keil_v5\ARM\INC\NXP\LPC17xx\LPC17xx.H)(0x520999CC)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cm3.h)(0x538418B6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x53462C34)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cmInstr.h)(0x530294C0)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cmFunc.h)(0x530294C0)
+I (C:\Keil_v5\ARM\INC\NXP\LPC17xx\system_LPC17xx.h)(0x520999CC)
+I (LED.h)(0x4A027556)
+F (.\Abstract.txt)(0x4A027556)()
