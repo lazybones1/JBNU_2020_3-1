@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\Obj\Blinky.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Obj\Blinky.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Jun 02 12:47:22 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Jun 04 15:44:45 2020
 <BR><P>
-<H3>Maximum Stack Usage =        128 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        136 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 __rt_entry_main &rArr; main &rArr; runGame &rArr; fighterMove &rArr; fire &rArr; missileMove &rArr; createMeteo &rArr; GLCD_displayChar &rArr; GLCD_drawChar &rArr; GLCD_SetY &rArr; wr_dat
 <P>
@@ -204,7 +204,7 @@ Global Symbols
 <P><STRONG><a name="[b2]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[48]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 128 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 136 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; runGame &rArr; fighterMove &rArr; fire &rArr; missileMove &rArr; createMeteo &rArr; GLCD_displayChar &rArr; GLCD_drawChar &rArr; GLCD_SetY &rArr; wr_dat
 </UL>
 <BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -515,8 +515,8 @@ Global Symbols
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;missileMove
 </UL>
 
-<P><STRONG><a name="[5c]"></a>missileMove</STRONG> (Thumb, 168 bytes, Stack size 32 bytes, blinky.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = missileMove &rArr; createMeteo &rArr; GLCD_displayChar &rArr; GLCD_drawChar &rArr; GLCD_SetY &rArr; wr_dat
+<P><STRONG><a name="[5c]"></a>missileMove</STRONG> (Thumb, 218 bytes, Stack size 40 bytes, blinky.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = missileMove &rArr; createMeteo &rArr; GLCD_displayChar &rArr; GLCD_drawChar &rArr; GLCD_SetY &rArr; wr_dat
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_displayChar
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;createMeteo
@@ -529,26 +529,27 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[60]"></a>fire</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, blinky.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = fire &rArr; missileMove &rArr; createMeteo &rArr; GLCD_displayChar &rArr; GLCD_drawChar &rArr; GLCD_SetY &rArr; wr_dat
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = fire &rArr; missileMove &rArr; createMeteo &rArr; GLCD_displayChar &rArr; GLCD_drawChar &rArr; GLCD_SetY &rArr; wr_dat
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;missileMove
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fighterMove
 </UL>
 
-<P><STRONG><a name="[61]"></a>gameOver</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, blinky.o(.text))
+<P><STRONG><a name="[61]"></a>gameOver</STRONG> (Thumb, 140 bytes, Stack size 0 bytes, blinky.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = gameOver &rArr; GLCD_displayStringLn &rArr; GLCD_displayChar &rArr; GLCD_drawChar &rArr; GLCD_SetY &rArr; wr_dat
 </UL>
 <BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_setTextColor
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_setBackColor
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_displayStringLn
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_displayChar
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_clear
 </UL>
 <BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fighterCrash
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moveMeteo
 </UL>
 
-<P><STRONG><a name="[66]"></a>moveMeteo</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, blinky.o(.text))
+<P><STRONG><a name="[66]"></a>moveMeteo</STRONG> (Thumb, 80 bytes, Stack size 8 bytes, blinky.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = moveMeteo &rArr; gameOver &rArr; GLCD_displayStringLn &rArr; GLCD_displayChar &rArr; GLCD_drawChar &rArr; GLCD_SetY &rArr; wr_dat
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_displayChar
@@ -558,7 +559,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;runGame
 </UL>
 
-<P><STRONG><a name="[67]"></a>fighterCrash</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, blinky.o(.text))
+<P><STRONG><a name="[67]"></a>fighterCrash</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, blinky.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = fighterCrash &rArr; gameOver &rArr; GLCD_displayStringLn &rArr; GLCD_displayChar &rArr; GLCD_drawChar &rArr; GLCD_SetY &rArr; wr_dat
 </UL>
 <BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameOver
@@ -567,7 +568,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[68]"></a>fighterMove</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, blinky.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = fighterMove &rArr; fire &rArr; missileMove &rArr; createMeteo &rArr; GLCD_displayChar &rArr; GLCD_drawChar &rArr; GLCD_SetY &rArr; wr_dat
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = fighterMove &rArr; fire &rArr; missileMove &rArr; createMeteo &rArr; GLCD_displayChar &rArr; GLCD_drawChar &rArr; GLCD_SetY &rArr; wr_dat
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_displayChar
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fire
@@ -575,11 +576,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;runGame
 </UL>
 
-<P><STRONG><a name="[69]"></a>gameInit</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, blinky.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = gameInit
+<P><STRONG><a name="[69]"></a>gameInit</STRONG> (Thumb, 102 bytes, Stack size 8 bytes, blinky.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = gameInit &rArr; GLCD_displayChar &rArr; GLCD_drawChar &rArr; GLCD_SetY &rArr; wr_dat
 </UL>
 <BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_setTextColor
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_setBackColor
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_displayChar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;runGame
 </UL>
@@ -589,7 +591,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[6a]"></a>runGame</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, blinky.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = runGame &rArr; fighterMove &rArr; fire &rArr; missileMove &rArr; createMeteo &rArr; GLCD_displayChar &rArr; GLCD_drawChar &rArr; GLCD_SetY &rArr; wr_dat
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = runGame &rArr; fighterMove &rArr; fire &rArr; missileMove &rArr; createMeteo &rArr; GLCD_displayChar &rArr; GLCD_drawChar &rArr; GLCD_SetY &rArr; wr_dat
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;joyStick
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameInit
@@ -602,7 +604,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[49]"></a>main</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, blinky.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = main &rArr; runGame &rArr; fighterMove &rArr; fire &rArr; missileMove &rArr; createMeteo &rArr; GLCD_displayChar &rArr; GLCD_drawChar &rArr; GLCD_SetY &rArr; wr_dat
+<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = main &rArr; runGame &rArr; fighterMove &rArr; fire &rArr; missileMove &rArr; createMeteo &rArr; GLCD_displayChar &rArr; GLCD_drawChar &rArr; GLCD_SetY &rArr; wr_dat
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_init
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_clear
@@ -667,8 +669,10 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_drawChar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GLCD_displayStringLn
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameInit
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fighterMove
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;moveMeteo
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameOver
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;missileMove
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;createMeteo
 </UL>
